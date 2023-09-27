@@ -1,0 +1,3 @@
+app_domain(vendor_trustedui_app)
+hal_client_domain(vendor_trustedui_app, vendor_hal_trustedui)
+type vendor_trustedui_app, domain;

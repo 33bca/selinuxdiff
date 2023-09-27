@@ -1,0 +1,8 @@
+allow vendor_powerservice_app activity_service:service_manager find;
+allow vendor_powerservice_app app_api_service:service_manager find;
+get_prop(vendor_powerservice_app, vendor_pasr_prop)
+app_domain(vendor_powerservice_app)
+hal_client_domain(vendor_powerservice_app, vendor_hal_perf)
+hal_client_domain(vendor_powerservice_app, vendor_hal_pasrmanager)
+hal_client_domain(vendor_powerservice_app, vendor_hal_mem_pasrmanager)
+type vendor_powerservice_app, domain;

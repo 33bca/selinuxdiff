@@ -1,0 +1,7 @@
+allow vendor_qtiloopback_app activity_service:service_manager find;
+allow vendor_qtiloopback_app cgroup:file rw_file_perms;
+allow vendor_qtiloopback_app system_app_data_file:dir r_dir_perms;
+allow vendor_qtiloopback_app app_api_service:service_manager find;
+app_domain(vendor_qtiloopback_app)
+hal_client_domain(vendor_qtiloopback_app, vendor_qtiloopback)
+type vendor_qtiloopback_app, domain;

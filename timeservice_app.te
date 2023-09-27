@@ -1,0 +1,5 @@
+allow vendor_timeservice_app app_api_service:service_manager find;
+allow vendor_timeservice_app vendor_time_daemon:unix_stream_socket connectto;
+app_domain(vendor_timeservice_app)
+hal_client_domain(vendor_timeservice_app, vendor_hal_perf)
+type vendor_timeservice_app, domain;

@@ -1,0 +1,2 @@
+neverallow installd { domain -servicemanager -su -system_server }:binder call;
+neverallow iorapd { domain -servicemanager -su -system_server }:binder call;
