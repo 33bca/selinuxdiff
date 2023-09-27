@@ -48,6 +48,8 @@ allow kernel vendor_debugfs_kgsl_fence_tracing:dir search;
 allow kernel debugfs_mmc:dir search;
 allow kernel vendor_vm_mgr:fd *;
 allow kernel vendor_vm_system_file:file r_file_perms;
+allow kernel vendor_hal_usb_qti:fd *;
+allow kernel vendor_ramdump_block_device:blk_file rw_file_perms;
 dontaudit kernel self:security setenforce;
 dontaudit kernel self:qipcrtr_socket create;
 dontaudit kernel kernel:system module_request;

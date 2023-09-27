@@ -53,9 +53,8 @@ allow servicemanager hal_aospa_powershare_server:binder transfer;
 allow servicemanager hal_graphics_composer:binder transfer;
 allow servicemanager vendor_hal_dcservice_qti_server:binder transfer;
 allow servicemanager vendor_hal_qms_qti_server:binder transfer;
-allow servicemanager vendor_spdaemon:binder transfer;
-allow servicemanager vendor_ssgtzd:binder transfer;
-allow servicemanager vendor_qguard:binder transfer;
+allow servicemanager bluetooth:binder transfer;
+allow servicemanager hal_misight_server:binder transfer;
 r_dir_file(servicemanager, selinuxfs)
 add_service(servicemanager, service_manager_service)
 type servicemanager, domain, mlstrustedsubject;

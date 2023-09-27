@@ -1,3 +1,10 @@
-hal_client_domain(untrusted_app_29, vendor_hal_dspmanager)
+allow untrusted_app_29 sound_device:chr_file rw_file_perms;
+allow untrusted_app_29 goodix_fingerprint_service:service_manager find;
+get_prop(untrusted_app_29, vendor_audio_prop)
+get_prop(untrusted_app_29, vendor_fp_prop)
+get_prop(untrusted_app_29, vendor_payment_security_prop)
 hal_client_domain(untrusted_app_29, vendor_hal_qspmhal)
+hal_client_domain(untrusted_app_29, hal_mlipay)
+hal_client_domain(untrusted_app_29, hal_tidaservice)
+hal_client_domain(untrusted_app_29, hal_otrpagent)
 type untrusted_app_29, domain;

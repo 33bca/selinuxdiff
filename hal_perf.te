@@ -1,3 +1,8 @@
+allow vendor_hal_perf_default vendor_hal_displayfeature_xiaomi_default:dir search;
+allow vendor_hal_perf_default vendor_hal_displayfeature_xiaomi_default:file read;
+allow vendor_hal_perf_default surfaceflinger:dir { open read search };
+allow vendor_hal_perf_default surfaceflinger:file { open read };
+allow vendor_hal_perf_default surfaceflinger:process setsched;
 allow vendor_hal_perf_default vendor_tzas_app:binder transfer;
 allow vendor_hal_perf_default cgroup:file r_file_perms;
 allow vendor_hal_perf_default proc:file rw_file_perms;
@@ -11,6 +16,7 @@ allow vendor_hal_perf_default self:netlink_generic_socket create_socket_perms_no
 allow vendor_hal_perf_default self:capability kill;
 allow vendor_hal_perf_default self:capability { setuid sys_nice };
 allow vendor_hal_perf_default self:capability sys_nice;
+allow vendor_hal_perf_default self:capability { fowner fsetid };
 allow vendor_hal_perf_default appdomain:process getpgid;
 allow vendor_hal_perf_default appdomain:process setsched;
 allow vendor_hal_perf_default appdomain:process getsched;
@@ -21,6 +27,22 @@ allow vendor_hal_perf_default block_device:dir { open read search };
 allow vendor_hal_perf_default proc_diskstats:file { getattr open read };
 allow vendor_hal_perf_default surfaceflinger:process setsched;
 allow vendor_hal_perf_default hal_graphics_composer_default:process setsched;
+allow vendor_hal_perf_default vendor_proc_perflock_records:file w_file_perms;
+allow vendor_hal_perf_default hal_power_default:dir r_dir_perms;
+allow vendor_hal_perf_default hal_power_default:file r_file_perms;
+allow vendor_hal_perf_default hal_camera_default:dir r_dir_perms;
+allow vendor_hal_perf_default hal_camera_default:file r_file_perms;
+allow vendor_hal_perf_default vendor_mfp-daemon:dir r_dir_perms;
+allow vendor_hal_perf_default vendor_mfp-daemon:dir search;
+allow vendor_hal_perf_default vendor_mfp-daemon:file r_file_perms;
+allow vendor_hal_perf_default vendor_mfp-daemon:file read;
+allow vendor_hal_perf_default sysfs_thermal:file rw_file_perms;
+allow vendor_hal_perf_default thermal_data_file:dir { read search watch };
+allow vendor_hal_perf_default thermal_data_file:file { getattr open read setattr unlink };
+allow vendor_hal_perf_default kernel:process setsched;
+allow vendor_hal_perf_default vendor_proc_kswapd_c:file rw_file_perms;
+allow vendor_hal_perf_default sysfs:file rw_file_perms;
+allow vendor_hal_perf_default hal_graphics_composer:dir search;
 allow vendor_hal_perf_client vendor_hal_perf_server:binder { call transfer };
 allow vendor_hal_perf_client vendor_hal_perf_server:fd *;
 allow vendor_hal_perf_client vendor_hal_perf_hwservice:hwservice_manager find;
@@ -73,6 +95,7 @@ r_dir_file(vendor_hal_perf_default, system_server)
 unix_socket_connect(vendor_hal_perf_default, property, vendor_thermal-engine)
 unix_socket_connect(vendor_hal_perf_default, vendor_thermal, init)
 unix_socket_connect(vendor_hal_perf_default, vendor_thermal, vendor_thermal-engine)
+get_prop(vendor_hal_perf_default, exported_system_prop)
 get_prop(vendor_hal_perf, vendor_freq_prop)
 get_prop(vendor_hal_perf, vendor_mpctl_prop)
 set_prop(vendor_hal_perf_default, vendor_mpctl_prop)

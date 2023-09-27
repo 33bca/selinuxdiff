@@ -2,6 +2,7 @@ neverallow cameraserver fs_type:file execute_no_trans;
 neverallow cameraserver file_type:file execute_no_trans;
 neverallow cameraserver domain:udp_socket *;
 neverallow cameraserver domain:rawip_socket *;
+neverallow cameraserver domain:tcp_socket *;
 allow cameraserver binderservicedomain:binder { call transfer };
 allow cameraserver binderservicedomain:fd *;
 allow cameraserver appdomain:binder { call transfer };
@@ -41,6 +42,8 @@ allow cameraserver system_file:dir r_dir_perms;
 allow cameraserver system_server:unix_stream_socket { read write };
 allow cameraserver mediacodec:binder { call transfer };
 allow cameraserver mediacodec:fd *;
+allow cameraserver hal_miface_default:binder call;
+allow cameraserver hal_miface_default:binder transfer;
 get_prop(cameraserver, vendor_camera_prop)
 get_prop(cameraserver, vendor_adsprpc_prop)
 get_prop(cameraserver, vendor_sys_video_prop)

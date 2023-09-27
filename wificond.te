@@ -16,6 +16,7 @@ allow wificond self:netlink_generic_socket create_socket_perms_no_ioctl;
 allow wificond permission_service:service_manager find;
 allow wificond keystore_service:service_manager find;
 allow wificond wifi_key:keystore2_key { get_info use };
+allow wificond radio:binder { call transfer };
 allowxperm wificond self:ioctl udp_socket { 0x8914 0x8924 };
 r_dir_file(wificond, proc_net_type)
 binder_use(wificond)

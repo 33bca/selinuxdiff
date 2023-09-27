@@ -62,3 +62,4 @@ neverallow { domain -init -vendor_init } zram_config_prop:property_service set;
 neverallow { domain -init -vendor_init } zygote_config_prop:property_service set;
 neverallow { domain -init -vendor_init } dck_prop:property_service set;
 neverallow { domain -init -vendor_init } vendor_afp_prop:property_service set;
+neverallow { domain -init -vendor_init } vendor_wlan_chip_prop:property_service set;

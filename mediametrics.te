@@ -2,6 +2,7 @@ neverallow mediametrics fs_type:file execute_no_trans;
 neverallow mediametrics file_type:file execute_no_trans;
 neverallow mediametrics domain:udp_socket *;
 neverallow mediametrics domain:rawip_socket *;
+neverallow mediametrics domain:tcp_socket *;
 allow mediametrics drmserver:binder transfer;
 allow mediametrics binderservicedomain:binder { call transfer };
 allow mediametrics binderservicedomain:fd *;

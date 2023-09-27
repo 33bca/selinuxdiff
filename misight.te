@@ -1,0 +1,4 @@
+binder_use(misight)
+hal_attribute(misight)
+hal_client_domain(misight, hal_misight)
+type misight, coredomain, domain, mlstrustedsubject;

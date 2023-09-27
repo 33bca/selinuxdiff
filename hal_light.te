@@ -17,8 +17,12 @@ allow hal_light sysfs_leds:file rw_file_perms;
 allow hal_light sysfs_leds:dir r_dir_perms;
 allow hal_light vendor_sysfs_graphics:dir search;
 allow hal_light vendor_sysfs_graphics:file rw_file_perms;
+allow hal_light_default vendor_sysfs_displayfeature:dir r_dir_perms;
+allow hal_light_default vendor_sysfs_displayfeature:file rw_file_perms;
+allow hal_light_default vendor_displayfeature_device:chr_file { ioctl open read write };
 allow hal_light_default dumpstate:binder transfer;
 init_daemon_domain(hal_light_default)
+get_prop(hal_light_default, vendor_displayfeature_prop)
 binder_use(hal_light_client)
 hal_server_domain(hal_light_default, hal_light)
 hal_attribute_service(hal_light, hal_light_service)

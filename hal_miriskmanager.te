@@ -1,0 +1,23 @@
+allow hal_miriskmanager_client hal_miriskmanager_server:binder { call transfer };
+allow hal_miriskmanager_client hal_miriskmanager_server:binder transfer;
+allow hal_miriskmanager_client hal_miriskmanager_server:fd *;
+allow hal_miriskmanager_server hal_miriskmanager_client:binder transfer;
+allow hal_miriskmanager_server hal_miriskmanager_client:binder { call transfer };
+allow hal_miriskmanager_server hal_miriskmanager_client:fd *;
+allow hal_miriskmanager_default hal_miriskmanager_hwservice:hwservice_manager add;
+allow hal_miriskmanager_default tee_device:chr_file rw_file_perms;
+allow hal_miriskmanager_default ion_device:chr_file rw_file_perms;
+allow hal_miriskmanager_default system_server:binder transfer;
+allow hal_miriskmanager_default system_server:binder { call transfer };
+allow hal_miriskmanager_default system_server:fd *;
+allow hal_miriskmanager_default system_app:binder call;
+allow hal_miriskmanager_default vendor_dmabuf_qseecom_heap_device:chr_file { ioctl open read };
+allow hal_miriskmanager_default vendor_dmabuf_qseecom_ta_heap_device:chr_file { ioctl open read };
+init_daemon_domain(hal_miriskmanager_default)
+get_prop(hal_miriskmanager_default, system_boot_reason_prop)
+hwbinder_use(hal_miriskmanager_default)
+hal_server_domain(hal_miriskmanager_default, hal_miriskmanager)
+add_hwservice(hal_miriskmanager_server, hal_miriskmanager_hwservice)
+type hal_miriskmanager_default, domain;
+type hal_miriskmanager_default_exec, exec_type, file_type, vendor_file_type;
+type hal_miriskmanager_hwservice, hwservice_manager_type;

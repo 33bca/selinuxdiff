@@ -103,6 +103,7 @@ allow appdomain mediadrmserver:binder transfer;
 allow appdomain mediaextractor:binder transfer;
 allow appdomain mediaserver:binder transfer;
 allow appdomain statsd:binder transfer;
+allow appdomain vendor_displayfeature:binder transfer;
 allow appdomain vendor_npu_device:chr_file r_file_perms;
 allow appdomain zygote:unix_dgram_socket getopt;
 allow appdomain vendor_qdsp_device:chr_file { ioctl read };

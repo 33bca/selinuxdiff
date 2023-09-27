@@ -20,6 +20,8 @@ allow bootanim hal_graphics_allocator:fd *;
 allow bootanim hal_graphics_composer:fd *;
 allow bootanim proc_meminfo:file r_file_perms;
 allow bootanim system_file:dir r_dir_perms;
+allow bootanim vendor_audio_prop:file read;
+allow bootanim vendor_proc_audiod:file read;
 dontaudit bootanim system_data_file:dir read;
 dontaudit bootanim vendor_hal_qspmhal_hwservice:hwservice_manager find;
 binder_use(bootanim)

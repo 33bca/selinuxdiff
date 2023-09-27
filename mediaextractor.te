@@ -2,6 +2,7 @@ neverallow mediaextractor fs_type:file execute_no_trans;
 neverallow mediaextractor file_type:file execute_no_trans;
 neverallow mediaextractor domain:udp_socket *;
 neverallow mediaextractor domain:rawip_socket *;
+neverallow mediaextractor domain:tcp_socket *;
 allow mediaextractor binderservicedomain:binder { call transfer };
 allow mediaextractor binderservicedomain:fd *;
 allow mediaextractor appdomain:binder { call transfer };

@@ -12,6 +12,11 @@ allow hal_secure_element_default vendor_secure_element_vendor_data_file:dir rw_d
 allow hal_secure_element_default vendor_secure_element_vendor_data_file:file create_file_perms;
 allow hal_secure_element_default tee_device:chr_file rw_file_perms;
 allow hal_secure_element_default vendor_dmabuf_qseecom_ta_heap_device:chr_file r_file_perms;
+allow hal_secure_element_default vendor_dmabuf_qseecom_ta_heap_device:chr_file { ioctl open read };
+allow hal_secure_element_default hal_mtdservice_hwservice:hwservice_manager find;
+allow hal_secure_element_default hal_mtdservice_default:binder { call transfer };
+allow hal_secure_element_default hal_mtdservice_default:fd *;
+allow hal_secure_element_default vendor_dmabuf_qseecom_heap_device:chr_file { ioctl open read };
 init_daemon_domain(hal_secure_element_default)
 get_prop(hal_secure_element_default, vendor_ese_prop)
 get_prop(hal_secure_element_default, vendor_nfc_nq_prop)

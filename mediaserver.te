@@ -61,6 +61,8 @@ allow mediaserver hal_graphics_composer:fd *;
 allow mediaserver hal_camera:fd *;
 allow mediaserver vold:fd *;
 allow mediaserver vendor_overlay_file:file { getattr map read };
+allow mediaserver sound_device:chr_file rw_file_perms;
+allow mediaserver vendor_sys_video_prop:file read;
 dontaudit mediaserver vendor_hal_qspmhal_hwservice:hwservice_manager find;
 allowxperm mediaserver self:ioctl tcp_socket { range 0x5401 0x5404 0x540b range 0x540e 0x5411 range 0x5413 0x5414 range 0x5450 0x5451 };
 allowxperm mediaserver self:ioctl tcp_socket { range 0x8906 0x8907 0x8910 range 0x8912 0x8913 0x8915 0x8917 0x8919 0x891b 0x8921 0x8933 0x8938 0x8942 };
@@ -90,6 +92,7 @@ unix_socket_connect(mediaserver, drmserver, bluetooth)
 unix_socket_connect(mediaserver, bluetooth, drmserver)
 unix_socket_connect(mediaserver, bluetooth, bluetooth)
 get_prop(mediaserver, vendor_audio_prop)
+get_prop(mediaserver, vendor_video_prop)
 binder_service(mediaserver)
 binder_use(mediaserver)
 net_domain(mediaserver)

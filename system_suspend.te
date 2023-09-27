@@ -30,7 +30,8 @@ allow system_suspend_server vendor_hvdcp:binder transfer;
 allow system_suspend_server vendor_location_xtwifi_client:binder transfer;
 allow system_suspend_server vendor_qms:binder transfer;
 allow system_suspend_server tee:binder transfer;
-allow system_suspend_server vendor_spdaemon:binder transfer;
+allow system_suspend_server batterysecret:binder transfer;
+allow system_suspend_server charge_logger:binder transfer;
 attribute system_suspend_server;
 r_dir_file(system_suspend_server, vendor_sysfs_usb_node)
 get_prop(system_suspend_server, hwservicemanager_prop)

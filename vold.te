@@ -140,7 +140,7 @@ dontaudit vold self:capability sys_resource;
 dontaudit vold self:cap_userns sys_resource;
 allowxperm vold fs_type:ioctl dir 0x5879;
 allowxperm vold file_type:ioctl dir 0x5879;
-allowxperm vold data_file_type:ioctl dir { 0x6613 0x6615 range 0x6617 0x6618 0x661a };
+allowxperm vold data_file_type:ioctl dir { 0x6613 0x6615 range 0x6617 0x6618 };
 allowxperm vold vold_metadata_file:ioctl file 0x660b;
 allowxperm vold vold_metadata_file:ioctl file 0xf514;
 allowxperm vold vold_data_file:ioctl file 0x660b;

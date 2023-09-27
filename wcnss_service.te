@@ -12,17 +12,20 @@ allow vendor_wcnss_service proc_net:file read;
 allow vendor_wcnss_service self:socket create_socket_perms;
 allow vendor_wcnss_service self:qipcrtr_socket create_socket_perms;
 allow vendor_wcnss_service self:netlink_generic_socket create_socket_perms_no_ioctl;
+allow vendor_wcnss_service self:netlink_generic_socket ioctl;
 allow vendor_wcnss_service self:netlink_socket create_socket_perms_no_ioctl;
 allow vendor_wcnss_service self:capability net_admin;
+allow vendor_wcnss_service self:capability { net_raw setgid setuid };
+allow vendor_wcnss_service self:packet_socket { bind create getopt ioctl map read setopt };
+allow vendor_wcnss_service self:packet_socket write;
 allow vendor_wcnss_service firmware_file:dir r_dir_perms;
 allow vendor_wcnss_service firmware_file:file r_file_perms;
 allow vendor_wcnss_service sysfs_net:dir search;
 allow vendor_wcnss_service sysfs_net:file { getattr open write };
+allow vendor_wcnss_service sysfs_net:file read;
 allow vendor_wcnss_service wpa_data_file:dir create_dir_perms;
 allow vendor_wcnss_service wpa_data_file:file create_file_perms;
 allow vendor_wcnss_service vendor_sysfs_data:file r_file_perms;
-allow vendor_wcnss_service vendor_wifi_vendor_log_data_file:dir create_dir_perms;
-allow vendor_wcnss_service vendor_wifi_vendor_log_data_file:file create_file_perms;
 allow vendor_wcnss_service kmsg_device:chr_file { open write };
 allow vendor_wcnss_service vendor_wifi_vendor_wpa_socket:dir create_dir_perms;
 allow vendor_wcnss_service vendor_wifi_vendor_wpa_socket:dir r_dir_perms;
@@ -30,19 +33,37 @@ allow vendor_wcnss_service vendor_wifi_vendor_wpa_socket:sock_file create_file_p
 allow vendor_wcnss_service vendor_wifi_vendor_wpa_socket:sock_file rw_file_perms;
 allow vendor_wcnss_service vendor_wifi_vendor_wpa_socket:file create_file_perms;
 allow vendor_wcnss_service vendor_wifi_vendor_wpa_socket:file rw_file_perms;
-allow vendor_wcnss_service mnt_vendor_file:dir search;
-allow vendor_wcnss_service vendor_persist_wcnss_service_file:dir rw_dir_perms;
-allow vendor_wcnss_service vendor_persist_wcnss_service_file:file create_file_perms;
-dontaudit vendor_wcnss_service vendor_diag_device:chr_file { append getattr ioctl lock map open read watch watch_reads write };
+allow vendor_wcnss_service vendor_mac_vendor_data_file:dir { add_name open read search setattr write };
+allow vendor_wcnss_service vendor_mac_vendor_data_file:dir rw_dir_perms;
+allow vendor_wcnss_service vendor_mac_vendor_data_file:file { create getattr open read setattr write };
+allow vendor_wcnss_service mnt_vendor_file:dir { add_name create read search write };
+allow vendor_wcnss_service mnt_vendor_file:file { create open read setattr write };
+allow vendor_wcnss_service vendor_diag_device:chr_file { create ioctl open read write };
+allow vendor_wcnss_service vendor_sysfs_diag:dir search;
+allow vendor_wcnss_service vendor_sysfs_diag:file { open read };
+allow vendor_wcnss_service vendor_wifi_vendor_log_data_file:dir { add_name getattr open read remove_name search setattr write };
+allow vendor_wcnss_service vendor_wifi_vendor_log_data_file:file { append create getattr open read rename setattr unlink write };
+allow vendor_wcnss_service vendor_proc_wifi_dbg:file { create getattr open read setattr write };
+allow vendor_wcnss_service vendor_data_file:dir { add_name getattr open read remove_name search setattr write };
+allow vendor_wcnss_service vendor_data_file:file { append create getattr open read rename setattr unlink write };
+allow vendor_wcnss_service vendor_modem_data_file:dir { add_name getattr open read remove_name search setattr write };
+allow vendor_wcnss_service vendor_modem_data_file:file { append create getattr open read rename setattr unlink write };
+allow vendor_wcnss_service fuse:dir { add_name getattr open read remove_name search setattr write };
+allow vendor_wcnss_service fuse:file { append create getattr open read rename setattr unlink write };
+dontaudit vendor_wcnss_service default_prop:file read;
 allowxperm vendor_wcnss_service self:ioctl socket { range 0xc300 0xc305 };
+allowxperm vendor_wcnss_service self:ioctl socket 0x8946;
 allowxperm vendor_wcnss_service self:ioctl qipcrtr_socket { range 0xc300 0xc305 };
 allowxperm vendor_wcnss_service self:ioctl udp_socket 0x8914;
 allowxperm vendor_wcnss_service self:ioctl udp_socket 0x8be5;
+allowxperm vendor_wcnss_service self:ioctl udp_socket { range 0x8913 0x8914 0x8943 0x8946 range 0x8990 0x8991 };
+allowxperm vendor_wcnss_service self:ioctl unix_dgram_socket 0x8946;
+allowxperm vendor_wcnss_service self:ioctl packet_socket { range 0x5401 0x5404 0x540b range 0x540e 0x5411 range 0x5413 0x5414 range 0x5450 0x5451 };
+allowxperm vendor_wcnss_service self:ioctl packet_socket { 0x6900 0x6902 };
+allowxperm vendor_wcnss_service self:ioctl packet_socket { range 0x8906 0x8907 range 0x890b 0x890d range 0x8910 0x8927 0x8929 range 0x8930 0x8939 range 0x8940 0x8943 range 0x8946 0x894b range 0x8953 0x8955 range 0x8960 0x8962 range 0x8970 0x8971 range 0x8980 0x8983 range 0x8990 0x8995 range 0x89a0 0x89a3 0x89b0 range 0x89e0 0x89ff };
+allowxperm vendor_wcnss_service self:ioctl packet_socket { range 0x8b00 0x8b02 range 0x8b04 0x8b1d range 0x8b20 0x8b2d range 0x8b30 0x8b36 range 0x8be0 0x8bff };
+allowxperm vendor_wcnss_service self:ioctl netlink_generic_socket { 0x8910 0x8946 };
 init_daemon_domain(vendor_wcnss_service)
-r_dir_file(vendor_wcnss_service, vendor_proc_wifi_dbg)
-r_dir_file(vendor_wcnss_service, vendor_sysfs_diag)
-r_dir_file(vendor_wcnss_service, storage_file)
-r_dir_file(vendor_wcnss_service, mnt_user_file)
 unix_socket_connect(vendor_wcnss_service, vendor_wigignpt, vendor_wigignpt)
 vndbinder_use(vendor_wcnss_service)
 net_domain(vendor_wcnss_service)

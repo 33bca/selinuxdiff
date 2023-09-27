@@ -1,10 +1,9 @@
-allow untrusted_app_27 vendor_sysfs_kgsl:dir search;
-allow untrusted_app_27 vendor_gles_data_file:dir rw_dir_perms;
-allow untrusted_app_27 vendor_gles_data_file:file rw_file_perms;
-dontaudit untrusted_app_27 vendor_sysfs_kgsl:dir read;
-dontaudit untrusted_app_27 vendor_sysfs_kgsl:file read;
-r_dir_file(untrusted_app_27, vendor_sysfs_kgsl_snapshot)
-r_dir_file(untrusted_app_27, vendor_gles_data_file)
-hal_client_domain(untrusted_app_27, vendor_hal_dspmanager)
+allow untrusted_app_27 sound_device:chr_file rw_file_perms;
+get_prop(untrusted_app_27, vendor_audio_prop)
+get_prop(untrusted_app_27, vendor_fp_prop)
+get_prop(untrusted_app_27, vendor_payment_security_prop)
 hal_client_domain(untrusted_app_27, vendor_hal_qspmhal)
+hal_client_domain(untrusted_app_27, hal_mlipay)
+hal_client_domain(untrusted_app_27, hal_tidaservice)
+hal_client_domain(untrusted_app_27, hal_otrpagent)
 type untrusted_app_27, domain;

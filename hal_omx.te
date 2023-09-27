@@ -5,6 +5,7 @@ neverallow hal_omx_server fs_type:file execute_no_trans;
 neverallow hal_omx_server file_type:file execute_no_trans;
 neverallow hal_omx_server domain:udp_socket *;
 neverallow hal_omx_server domain:rawip_socket *;
+neverallow hal_omx_server domain:tcp_socket *;
 allow hal_omx_server binderservicedomain:binder { call transfer };
 allow hal_omx_server binderservicedomain:fd *;
 allow hal_omx_server hal_graphics_composer:fd *;

@@ -22,6 +22,7 @@ domain_auto_trans(vendor_location, vendor_location_edgnss_daemon_exec, vendor_lo
 domain_auto_trans(vendor_location, vendor_location_engine_service_exec, vendor_location_engine_service)
 domain_auto_trans(vendor_location, vendor_location_slim_daemon_exec, vendor_location_slim_daemon)
 domain_auto_trans(vendor_location, vendor_location_xtwifi_client_exec, vendor_location_xtwifi_client)
+domain_auto_trans(vendor_location, vendor_location_xtwifi_inetagent_exec, vendor_location_xtwifi_inetagent)
 init_daemon_domain(vendor_location)
 type vendor_location, domain;
 type vendor_location_exec, exec_type, file_type, vendor_file_type;

@@ -85,19 +85,9 @@ allow shell seapp_contexts_file:file r_file_perms;
 allow shell service_contexts_file:file r_file_perms;
 allow shell sepolicy_file:file r_file_perms;
 allow shell vendor_shell_exec:file rx_file_perms;
-allow shell vendor_location_exec:file rx_file_perms;
-allow shell vendor_location_lowi_server_exec:file rx_file_perms;
-allow shell vendor_location_xtra_daemon_exec:file rx_file_perms;
-allow shell debugfs_tracing_instances:dir search;
-allow shell vendor_debugfs_kgsl_fence_tracing:file r_file_perms;
-allow shell vendor_debugfs_kgsl_fence_tracing:dir r_dir_perms;
 allow shell vendor_sysfs_kgsl_shell:file rw_file_perms;
-allow shell vendor_location_edgnss_daemon_exec:file rx_file_perms;
-allow shell vendor_location_engine_service_exec:file rx_file_perms;
-allow shell vendor_location_slim_daemon_exec:file rx_file_perms;
-allow shell vendor_location_xtwifi_client_exec:file rx_file_perms;
-allow shell vendor_qsap_location_exec:file rx_file_perms;
-allow shell vendor_location_test_exec:file rx_file_perms;
+allow shell minidump_data_file:dir getattr;
+allow shell mi_ic_data_file:dir getattr;
 allow vendor_shell vendor_shell_exec:file rx_file_perms;
 allow vendor_shell vendor_toolbox_exec:file rx_file_perms;
 allow vendor_shell shell:fd *;
@@ -140,7 +130,10 @@ unix_socket_connect(shell, logd, dumpstate)
 unix_socket_connect(shell, dumpstate, logd)
 unix_socket_connect(shell, dumpstate, dumpstate)
 get_prop(shell, logd_prop)
-set_prop(vendor_shell, persist_vendor_debug_wifi_prop)
+get_prop(shell, vendor_touchfeature_prop)
+get_prop(shell, vendor_payment_security_prop)
+get_prop(shell, vendor_fp_prop)
+get_prop(shell, vendor_fp_info_prop)
 hwbinder_use(shell)
 net_domain(shell)
 hal_client_domain(shell, vendor_hal_dspmanager)

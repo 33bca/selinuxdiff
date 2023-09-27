@@ -1,5 +1,6 @@
 neverallow iorapd domain:udp_socket *;
 neverallow iorapd domain:rawip_socket *;
+neverallow iorapd domain:tcp_socket *;
 allow iorapd dumpstate:binder transfer;
 allow iorapd dumpstate:fd *;
 allow iorapd dumpstate:fifo_file write;

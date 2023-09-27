@@ -1,3 +1,10 @@
+neverallow fsck vold_device:blk_file no_rw_file_perms;
+neverallow fsck root_block_device:blk_file no_rw_file_perms;
+neverallow fsck frp_block_device:blk_file no_rw_file_perms;
+neverallow fsck system_block_device:blk_file no_rw_file_perms;
+neverallow fsck recovery_block_device:blk_file no_rw_file_perms;
+neverallow fsck boot_block_device:blk_file no_rw_file_perms;
+neverallow fsck swap_block_device:blk_file no_rw_file_perms;
 allow fsck tmpfs:chr_file { ioctl read write };
 allow fsck devpts:chr_file { getattr ioctl read write };
 allow fsck vold:fd *;

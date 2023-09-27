@@ -33,6 +33,7 @@ allow vendor_cnd system_file:dir r_dir_perms;
 allow vendor_cnd vendor_wlan_device:chr_file w_file_perms;
 allow vendor_cnd vendor_diag_device:chr_file rw_file_perms;
 allow vendor_cnd vendor_location_lowi_server:binder transfer;
+allow vendor_cnd radio:binder transfer;
 allow vendor_cnd vendor_smem_log_device:chr_file rw_file_perms;
 allow vendor_cnd vendor_wifi_vendor_data_file:dir r_dir_perms;
 allow vendor_cnd vendor_hostapd:unix_dgram_socket sendto;

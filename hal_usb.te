@@ -31,7 +31,11 @@ allow vendor_hal_usb_qti vendor_sysfs_usb_c:lnk_file r_file_perms;
 allow vendor_hal_usb_qti vendor_sysfs_usb_c:file rw_file_perms;
 allow vendor_hal_usb_qti vendor_sysfs_usb_node:dir r_dir_perms;
 allow vendor_hal_usb_qti vendor_sysfs_usb_node:file rw_file_perms;
-allow vendor_hal_usb_qti vendor_sysfs_usb_device:file rw_file_perms;
+allow vendor_hal_usb_qti block_device:dir search;
+allow vendor_hal_usb_qti vendor_ramdump_block_device:blk_file rw_file_perms;
+allow vendor_hal_usb_qti vendor_sysfs_usb_device:file { getattr open read write };
+allow vendor_hal_usb_qti proc_usb_msflag:file { getattr open read write };
+allow vendor_hal_usb_qti proc_enable_msflag:file { getattr open read };
 init_daemon_domain(hal_usb_default)
 init_daemon_domain(vendor_hal_usb_qti)
 r_dir_file(hal_usb_default, vendor_sysfs_usb_supply)

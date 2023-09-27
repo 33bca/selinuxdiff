@@ -10,6 +10,11 @@ allow hwservicemanager lmkd:binder transfer;
 allow hwservicemanager lmkd:dir search;
 allow hwservicemanager lmkd:file { open read };
 allow hwservicemanager lmkd:process getattr;
+allow hwservicemanager wdsdaemon:dir search;
+allow hwservicemanager wdsdaemon:file read;
+allow hwservicemanager wdsdaemon:file open;
+allow hwservicemanager wdsdaemon:process getattr;
+allow hwservicemanager wdsdaemon:binder transfer;
 r_dir_file(hwservicemanager, selinuxfs)
 type hwservicemanager, domain, mlstrustedsubject;
 type hwservicemanager_exec, exec_type, file_type, system_file_type;

@@ -1,0 +1,10 @@
+allow vendor_sosd vendor_location_xtra_daemon:binder transfer;
+allow vendor_sosd vendor_location_xtra_daemon:binder { call transfer };
+allow vendor_sosd vendor_location_xtra_daemon:fd *;
+allow vendor_sosd self:qipcrtr_socket create_socket_perms_no_ioctl;
+allow vendor_sosd vendor_xtra_service:service_manager find;
+init_daemon_domain(vendor_sosd)
+unix_socket_connect(vendor_sosd, vendor_qesd, vendor_hal_qesdhal)
+vndbinder_use(vendor_sosd)
+type vendor_sosd, domain;
+type vendor_sosd_exec, exec_type, file_type, vendor_file_type;
