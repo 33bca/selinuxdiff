@@ -6,7 +6,6 @@ neverallow mediaswcodec domain:rawip_socket *;
 allow mediaswcodec dumpstate:binder transfer;
 allow mediaswcodec dumpstate:fd *;
 allow mediaswcodec dumpstate:fifo_file { append write };
-allow mediaswcodec su:fifo_file append;
 allow mediaswcodec anr_data_file:file append;
 allow mediaswcodec incidentd:fd *;
 allow mediaswcodec incidentd:fifo_file { append write };

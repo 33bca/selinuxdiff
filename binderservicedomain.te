@@ -1,4 +1,3 @@
-allow binderservicedomain aidl_lazy_test_server:binder transfer;
 allow binderservicedomain cameraserver:binder transfer;
 allow binderservicedomain dumpstate:binder transfer;
 allow binderservicedomain hal_omx_server:binder transfer;

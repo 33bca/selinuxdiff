@@ -17,17 +17,10 @@ allow vendor_qcc_trd_2 vendor_qmuxd_socket:dir create_dir_perms;
 allow vendor_qcc_trd_2 vendor_qmuxd_socket:sock_file { create getattr read setattr unlink write };
 allow vendor_qcc_trd_2 vendor_firmware_file:dir r_dir_perms;
 allow vendor_qcc_trd_2 vendor_firmware_file:file r_file_perms;
-allow vendor_qcc_trd_2 fuse_device:chr_file rw_file_perms;
-allow vendor_qcc_trd_2 fuse:dir create_dir_perms;
-allow vendor_qcc_trd_2 fuse:file create_file_perms;
-allow vendor_qcc_trd_2 mnt_user_file:dir search;
-allow vendor_qcc_trd_2 mnt_user_file:lnk_file read;
 allow vendor_qcc_trd_2 vendor_qtrsdkservice_service:service_manager find;
 allow vendor_qcc_trd_2 vendor_qccvendor:binder { call transfer };
 allow vendor_qcc_trd_2 vendor_qccvendor:binder transfer;
 allow vendor_qcc_trd_2 vendor_qccvendor:fd *;
-allow vendor_qcc_trd_2 system_data_root_file:dir r_dir_perms;
-allow vendor_qcc_trd_2 vendor_qccvendor_data_file:dir r_dir_perms;
 dontaudit vendor_qcc_trd_2 sysfs:file { append getattr ioctl lock map open read watch watch_reads write };
 init_daemon_domain(vendor_qcc_trd_2)
 r_dir_file(vendor_qcc_trd_2, vendor_sysfs_battery_supply)

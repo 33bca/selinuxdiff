@@ -9,7 +9,6 @@ allow hal_tv_tuner_client servicemanager:fd *;
 allow hal_tv_tuner_server hal_tv_tuner_client:binder transfer;
 allow hal_tv_tuner_server hal_tv_tuner_client:binder { call transfer };
 allow hal_tv_tuner_server hal_tv_tuner_client:fd *;
-allow hal_tv_tuner_server su:tcp_socket { accept getopt read write };
 allow hal_tv_tuner_server servicemanager:binder { call transfer };
 allow hal_tv_tuner_server servicemanager:fd *;
 allow hal_tv_tuner_default ion_device:chr_file r_file_perms;

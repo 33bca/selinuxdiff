@@ -1,7 +1,6 @@
 allow vendor_hal_qesdhal_default vendor_qesd_socket:sock_file w_file_perms;
 allow vendor_hal_qesdhal_default vendor_qesdk_service:service_manager find;
 allow vendor_hal_qesdhal_default tee_device:chr_file rw_file_perms;
-allow vendor_hal_qesdhal_default su:fifo_file append;
 allow vendor_hal_qesdhal_default anr_data_file:file append;
 allow vendor_hal_qesdhal_default dumpstate:fd *;
 allow vendor_hal_qesdhal_default dumpstate:fifo_file { append write };

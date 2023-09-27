@@ -5,7 +5,6 @@ allow hal_keymint_server dumpstate:binder transfer;
 allow hal_keymint_server dumpstate:fifo_file write;
 allow hal_keymint_server dumpstate:fd *;
 allow hal_keymint_server hal_keymint_client:binder transfer;
-allow hal_keymint_server su:tcp_socket { accept getopt read write };
 allow hal_keymint_server servicemanager:binder { call transfer };
 allow hal_keymint_server servicemanager:fd *;
 allow hal_keymint_client hal_keymint_server:binder { call transfer };

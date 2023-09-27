@@ -1,12 +1,12 @@
 neverallow iorapd domain:udp_socket *;
 neverallow iorapd domain:rawip_socket *;
+neverallow iorapd domain:tcp_socket *;
 allow iorapd dumpstate:binder transfer;
 allow iorapd dumpstate:fd *;
 allow iorapd dumpstate:fifo_file write;
 allow iorapd proc_drop_caches:file rw_file_perms;
 allow iorapd iorapd_data_file:dir create_dir_perms;
 allow iorapd iorapd_data_file:file create_file_perms;
-allow iorapd su:tcp_socket { accept getopt read write };
 allow iorapd system_server:binder { call transfer };
 allow iorapd system_server:fd *;
 allow iorapd permission_service:service_manager find;

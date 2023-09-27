@@ -7,7 +7,6 @@ allow hal_audiocontrol_client hal_audiocontrol_server:fd *;
 allow hal_audiocontrol_server hal_audiocontrol_client:binder transfer;
 allow hal_audiocontrol_server hal_audiocontrol_client:binder { call transfer };
 allow hal_audiocontrol_server hal_audiocontrol_client:fd *;
-allow hal_audiocontrol_server su:tcp_socket { accept getopt read write };
 allow hal_audiocontrol_server servicemanager:binder { call transfer };
 allow hal_audiocontrol_server servicemanager:fd *;
 init_daemon_domain(hal_audiocontrol_default)

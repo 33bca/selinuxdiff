@@ -10,7 +10,6 @@ allow hal_evs_server hal_evs_client:binder { call transfer };
 allow hal_evs_server hal_evs_client:fd *;
 allow hal_evs_server hal_evs_hwservice:hwservice_manager { add find };
 allow hal_evs_server hidl_base_hwservice:hwservice_manager add;
-allow hal_evs_server su:tcp_socket { accept getopt read write };
 allow hal_evs_default automotive_display_service_server:binder { call transfer };
 allow hal_evs_default automotive_display_service_server:fd *;
 allow hal_evs_default fwk_automotive_display_hwservice:hwservice_manager find;

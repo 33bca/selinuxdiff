@@ -1,2 +1,3 @@
+get_prop(zygote, vendor_fp_prop)
 type zygote, domain;
 type zygote_exec, exec_type, file_type, system_file_type;

@@ -15,7 +15,6 @@ allow uncrypt proc_cmdline:file r_file_perms;
 allow uncrypt gsi_metadata_file_type:dir search;
 allow uncrypt metadata_file:dir search;
 allow uncrypt gsi_public_metadata_file:file r_file_perms;
-r_dir_file(uncrypt, shell_data_file)
 r_dir_file(uncrypt, rootfs)
 r_dir_file(uncrypt, sysfs_dt_firmware_android)
 unix_socket_connect(uncrypt, uncrypt, uncrypt)

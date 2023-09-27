@@ -45,7 +45,6 @@ neverallow hal_configstore_server self:cap2_userns *;
 allow hal_configstore_client hal_configstore_server:binder { call transfer };
 allow hal_configstore_client hal_configstore_server:fd *;
 allow hal_configstore_server hal_configstore_client:binder transfer;
-allow hal_configstore_server su:fifo_file append;
 allow hal_configstore_server anr_data_file:file append;
 allow hal_configstore_server dumpstate:fd *;
 allow hal_configstore_server dumpstate:fifo_file { append write };

@@ -12,7 +12,6 @@ allow vendor_thermal-engine sysfs_devices_system_cpu:file rw_file_perms;
 allow vendor_thermal-engine vendor_qmuxd_socket:dir create_dir_perms;
 allow vendor_thermal-engine vendor_qmuxd_socket:sock_file { create getattr read setattr unlink write };
 allow vendor_thermal-engine uio_device:chr_file rw_file_perms;
-allow vendor_thermal-engine vendor_diag_device:chr_file rw_file_perms;
 allow vendor_thermal-engine vendor_sysfs_kgsl:dir r_dir_perms;
 allow vendor_thermal-engine vendor_sysfs_kgsl:file rw_file_perms;
 allow vendor_thermal-engine vendor_sysfs_kgsl:lnk_file r_file_perms;
@@ -31,7 +30,6 @@ allowxperm vendor_thermal-engine self:ioctl socket { range 0xc300 0xc305 };
 allowxperm vendor_thermal-engine self:ioctl qipcrtr_socket { range 0xc300 0xc305 };
 init_daemon_domain(vendor_thermal-engine)
 r_dir_file(vendor_thermal-engine, sysfs_thermal)
-r_dir_file(vendor_thermal-engine, vendor_sysfs_diag)
 r_dir_file(vendor_thermal-engine, sysfs_leds)
 r_dir_file(vendor_thermal-engine, sysfs_uio)
 r_dir_file(vendor_thermal-engine, vendor_sysfs_uio_file)

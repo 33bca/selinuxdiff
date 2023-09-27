@@ -1,4 +1,3 @@
-allow diced su:tcp_socket { accept getopt read write };
 allow diced selinuxfs:file w_file_perms;
 allow diced kernel:security compute_av;
 allow diced self:netlink_selinux_socket { accept append bind connect create getattr getopt listen lock name_bind read recvfrom relabelfrom relabelto sendto setattr setopt shutdown write };

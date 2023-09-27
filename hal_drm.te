@@ -8,7 +8,6 @@ allow hal_drm_server dumpstate:fd *;
 allow hal_drm_server hal_drm_client:binder transfer;
 allow hal_drm_server hal_drm_client:binder { call transfer };
 allow hal_drm_server hal_drm_client:fd *;
-allow hal_drm_server su:tcp_socket { accept getopt read write };
 allow hal_drm_client hal_drm_server:binder { call transfer };
 allow hal_drm_client hal_drm_server:binder transfer;
 allow hal_drm_client hal_drm_server:fd *;

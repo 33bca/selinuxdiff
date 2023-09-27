@@ -1,0 +1,14 @@
+allow hal_cit_bluetooth_client hal_cit_bluetooth_server:binder { call transfer };
+allow hal_cit_bluetooth_client hal_cit_bluetooth_server:binder transfer;
+allow hal_cit_bluetooth_client hal_cit_bluetooth_server:fd *;
+allow hal_cit_bluetooth_server hal_cit_bluetooth_client:binder transfer;
+allow hal_cit_bluetooth_server hal_cit_bluetooth_client:binder { call transfer };
+allow hal_cit_bluetooth_server hal_cit_bluetooth_client:fd *;
+domain_auto_trans(hal_cit_bluetooth_default, vendor_shell_exec, hal_cit_bluetooth_sub)
+init_daemon_domain(hal_cit_bluetooth_default)
+hwbinder_use(hal_cit_bluetooth_default)
+hal_server_domain(hal_cit_bluetooth_default, hal_cit_bluetooth)
+add_hwservice(hal_cit_bluetooth_server, hal_cit_bluetooth_hwservice)
+type hal_cit_bluetooth_default, domain;
+type hal_cit_bluetooth_default_exec, exec_type, file_type, vendor_file_type;
+type hal_cit_bluetooth_hwservice, hwservice_manager_type;

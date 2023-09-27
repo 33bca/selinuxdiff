@@ -1,5 +1,6 @@
 allow secure_element vendor_hal_keymint_strongbox:binder transfer;
 allow secure_element vendor_hal_weaver_default:binder transfer;
+get_prop(secure_element, vendor_nfc_mi_prop)
 hal_attribute(secure_element)
 hal_client_domain(secure_element, vendor_hal_perf)
 type secure_element, domain;

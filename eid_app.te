@@ -1,0 +1,5 @@
+allow vendor_eid_app app_api_service:service_manager find;
+app_domain(vendor_eid_app)
+hal_client_domain(vendor_eid_app, vendor_hal_perf)
+hal_client_domain(vendor_eid_app, vendor_hal_eid)
+type vendor_eid_app, domain;

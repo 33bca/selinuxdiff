@@ -9,12 +9,12 @@ allow rild self:qipcrtr_socket create_socket_perms_no_ioctl;
 allow rild vendor_per_mgr_service:service_manager find;
 allow rild vendor_radio_vendor_data_file:dir rw_dir_perms;
 allow rild vendor_radio_vendor_data_file:file create_file_perms;
-allow rild vendor_diag_device:chr_file rw_file_perms;
 allow rild vendor_qmuxd_socket:dir w_dir_perms;
 allow rild vendor_qmuxd_socket:sock_file create_file_perms;
 allow rild vendor_rild_socket:dir w_dir_perms;
 allow rild vendor_rild_socket:sock_file create_file_perms;
-allow rild su:fifo_file append;
+allow rild vendor_mbn_data_file:dir create_dir_perms;
+allow rild vendor_mbn_data_file:file create_file_perms;
 allow rild anr_data_file:file append;
 allow rild dumpstate:fd *;
 allow rild dumpstate:fifo_file { append write };
@@ -23,8 +23,37 @@ allow rild incidentd:fifo_file { append write };
 allow rild system_server:fifo_file { append write };
 allow rild tombstoned:fd *;
 allow rild tombstone_data_file:file append;
-dontaudit rild vendor_diag_device:chr_file { append getattr ioctl lock map open read watch watch_reads write };
-dontaudit rild vendor_pd_locater_dbg_prop:file { getattr ioctl lock map open read watch watch_reads };
+allow rild sysfs:dir open;
+allow rild sysfs:dir read;
+allow rild sysfs:file read;
+allow rild sysfs:file open;
+allow rild sysfs:file write;
+allow rild sysfs:file getattr;
+allow rild system_data_file:file read;
+allow rild system_data_file:file { getattr ioctl read };
+allow rild vendor_toolbox_exec:file execute_no_trans;
+allow rild sdcardfs:dir create_dir_perms;
+allow rild sdcardfs:file create_file_perms;
+allow rild media_rw_data_file:file { getattr read write };
+allow rild storage_file:dir create_dir_perms;
+allow rild storage_file:file create_file_perms;
+allow rild storage_file:lnk_file { read write };
+allow rild mnt_user_file:dir create_dir_perms;
+allow rild mnt_user_file:file create_file_perms;
+allow rild mnt_user_file:lnk_file read;
+allow rild vendor_tombstone_data_file:dir create_dir_perms;
+allow rild vendor_tombstone_data_file:file create_file_perms;
+allow rild block_device:dir { open read search write };
+allow rild block_device:file { open read write };
+allow rild vendor_qdisplay_service:service_manager find;
+allow rild hal_graphics_composer_default:binder { call transfer };
+allow rild hal_graphics_composer_default:fd *;
+allow rild vendor_diag_device:chr_file rw_file_perms;
+allow rild vendor_radio_smd_device:file { open read write };
+allow rild vendor_radio_smd_device:chr_file { open read write };
+allow rild vendor_modem_data_file:dir create_dir_perms;
+allow rild vendor_modem_data_file:file create_file_perms;
+allow rild vendor_sysfs_ssr_toggle:file rw_file_perms;
 allowxperm rild self:ioctl socket { range 0xc300 0xc305 };
 init_daemon_domain(rild)
 r_dir_file(rild, vendor_mbn_data_file)
@@ -47,12 +76,18 @@ unix_socket_connect(rild, property, vendor_netmgrd)
 unix_socket_connect(rild, property, vendor_time_daemon)
 unix_socket_connect(rild, property, vendor_ssgtzd)
 unix_socket_connect(rild, property, tombstoned)
-get_prop(rild, vendor_pd_locater_dbg_prop)
 get_prop(rild, radio_control_prop)
 get_prop(rild, vendor_dataqdp_prop)
-get_prop(rild, vendor_qc_aon_prop)
-get_prop(rild, vendor_persist_rcs_qti_prop)
+get_prop(rild, vendor_cpuid_prop)
+get_prop(rild, vendor_miui_region_prop)
+get_prop(rild, vendor_miui_singlesim_prop)
 set_prop(rild, vendor_xlat_prop)
+set_prop(rild, vendor_system_prop)
+set_prop(rild, vendor_radio_prop)
+set_prop(rild, vendor_ssr_prop)
+set_prop(rild, vendor_usb_prop)
+set_prop(rild, vendor_deviceid_prop)
+set_prop(rild, vendor_sno_prop)
 binder_service(rild)
 vndbinder_use(rild)
 net_domain(rild)

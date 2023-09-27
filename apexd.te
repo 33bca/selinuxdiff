@@ -1,4 +1,3 @@
-allow apexd su:tcp_socket { accept getopt read write };
 binder_use(apexd)
 add_service(apexd, apex_service)
 type apexd, domain;

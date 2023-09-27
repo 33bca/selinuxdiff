@@ -31,8 +31,8 @@ allow vendor_cnd vendor_netmgrd:fd *;
 allow vendor_cnd vendor_netmgrd:udp_socket { read write };
 allow vendor_cnd system_file:dir r_dir_perms;
 allow vendor_cnd vendor_wlan_device:chr_file w_file_perms;
-allow vendor_cnd vendor_diag_device:chr_file rw_file_perms;
 allow vendor_cnd vendor_location_lowi_server:binder transfer;
+allow vendor_cnd radio:binder transfer;
 allow vendor_cnd vendor_smem_log_device:chr_file rw_file_perms;
 allow vendor_cnd vendor_wifi_vendor_data_file:dir r_dir_perms;
 allow vendor_cnd vendor_hostapd:unix_dgram_socket sendto;
@@ -44,17 +44,12 @@ allow vendor_cnd hostapd_data_file:dir rw_dir_perms;
 allow vendor_cnd hostapd_data_file:sock_file create_file_perms;
 allow vendor_cnd hal_wifi_hostapd_default:unix_dgram_socket sendto;
 allow vendor_cnd vendor_nwmgr_service:service_manager find;
-allow vendor_cnd radio:binder { call transfer };
-allow vendor_cnd radio:fd *;
-allow vendor_cnd vendor_qtelephony:binder transfer;
-dontaudit vendor_cnd vendor_diag_device:chr_file { append getattr ioctl lock map open read watch watch_reads write };
 allowxperm vendor_cnd self:ioctl udp_socket 0x8921;
 allowxperm vendor_cnd self:ioctl udp_socket { 0x8b0c 0x8bf5 };
 domain_auto_trans(vendor_cnd, vendor_hostapd_exec, vendor_hostapd)
 file_type_auto_trans(vendor_cnd, socket_device, vendor_cnd_socket)
 init_daemon_domain(vendor_cnd)
 r_dir_file(vendor_cnd, vendor_sysfs_ssr)
-r_dir_file(vendor_cnd, vendor_sysfs_diag)
 unix_socket_connect(vendor_cnd, wpa, init)
 unix_socket_connect(vendor_cnd, wpa, vendor_netmgrd)
 unix_socket_connect(vendor_cnd, wpa, vendor_ssgtzd)

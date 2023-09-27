@@ -1,9 +1,17 @@
+neverallow domain apexd:process ptrace;
 neverallow domain crash_dump_exec:file execute_no_trans;
 neverallow domain device:chr_file { open read write };
 neverallow domain cache_file:file execute;
 neverallow domain cache_backup_file:file execute;
 neverallow domain cache_private_backup_file:file execute;
 neverallow domain cache_recovery_file:file execute;
+neverallow domain nativetest_data_file:file no_w_file_perms;
+neverallow domain nativetest_data_file:file no_x_file_perms;
+neverallow domain nativetest_data_file:lnk_file no_w_file_perms;
+neverallow domain nativetest_data_file:chr_file no_w_file_perms;
+neverallow domain nativetest_data_file:blk_file no_w_file_perms;
+neverallow domain nativetest_data_file:sock_file no_w_file_perms;
+neverallow domain nativetest_data_file:fifo_file no_w_file_perms;
 neverallow domain nativetest_data_file:dir no_w_dir_perms;
 neverallow domain exec_type:file no_w_file_perms;
 neverallow domain exec_type:dir no_w_file_perms;
@@ -34,13 +42,17 @@ neverallow domain contextmount_type:blk_file { unlink write };
 neverallow domain contextmount_type:sock_file { unlink write };
 neverallow domain contextmount_type:fifo_file { unlink write };
 neverallow domain tombstoned_crash_socket:unix_stream_socket connectto;
+neverallow domain su_exec:file no_x_file_perms;
 neverallow domain debugfs_type:file no_x_file_perms;
 neverallow domain crash_dump:process noatsecure;
 neverallow domain proc_type:dir { add_name create link remove_name rename reparent rmdir write };
 neverallow domain sysfs_type:dir { add_name create link remove_name rename reparent rmdir write };
 neverallow domain cgroup:file create;
 neverallow domain cgroup_v2:file create;
+neverallow domain self:lockdown integrity;
 neverallow domain init:process dyntransition;
+neverallow domain keystore:process ptrace;
+neverallow domain logd:process ptrace;
 neverallow domain netutils_wrapper_exec:file execute_no_trans;
 neverallow domain vendor_init:process dyntransition;
 allow domain init:process sigchld;
@@ -56,14 +68,6 @@ allow domain self:lockdown confidentiality;
 allow domain proc:dir r_dir_perms;
 allow domain proc:lnk_file { getattr read };
 allow domain proc_net_type:dir search;
-allow domain su:fd *;
-allow domain su:unix_stream_socket { connectto getattr getopt read shutdown write };
-allow domain su:fifo_file { getattr write };
-allow domain su:process sigchld;
-allow domain coredump_file:file create_file_perms;
-allow domain coredump_file:dir ra_dir_perms;
-allow domain coredump_file:dir create_dir_perms;
-allow domain coredump_file:dir rw_dir_perms;
 allow domain tmpfs:dir { getattr search };
 allow domain rootfs:dir search;
 allow domain rootfs:lnk_file { getattr read };
@@ -138,19 +142,13 @@ allow domain fs_type:filesystem getattr;
 allow domain fs_type:dir getattr;
 allow domain apex_mnt_dir:dir { getattr search };
 allow domain apex_mnt_dir:lnk_file r_file_perms;
-allow domain vendor_diag_device:chr_file rw_file_perms;
-allow domain vendor_sysfs_kgsl:dir search;
 allow domain vendor-qti-testscripts:fd *;
 allow domain vendor-qti-testscripts:fifo_file { getattr write };
 allow domain vendor-qti-testscripts:process sigchld;
 dontaudit domain property_type:file audit_access;
 dontaudit domain postinstall_mnt_dir:dir audit_access;
 dontaudit domain proc_type:dir write;
-dontaudit domain proc_type:dir add_name;
-dontaudit domain proc_type:file create;
 dontaudit domain sysfs_type:dir write;
-dontaudit domain sysfs_type:dir add_name;
-dontaudit domain sysfs_type:file create;
 dontaudit domain cgroup:file create;
 dontaudit domain cgroup_v2:file create;
 dontaudit domain runtime_event_log_tags_file:file { map open read };
@@ -266,7 +264,6 @@ attribute domain;
 r_dir_file(domain, self)
 r_dir_file(domain, sysfs_devices_system_cpu)
 r_dir_file(domain, sysfs_usb)
-unix_socket_send(domain, logdw, su)
 unix_socket_send(domain, logdw, logd)
 get_prop(domain, aaudio_config_prop)
 get_prop(domain, apexd_select_prop)

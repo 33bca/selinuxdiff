@@ -1,5 +1,4 @@
 allow fingerprintd system_file:dir r_dir_perms;
-allow fingerprintd su:tcp_socket { accept getopt read write };
 allow fingerprintd fingerprintd_data_file:file create_file_perms;
 allow fingerprintd fingerprintd_data_file:dir rw_dir_perms;
 allow fingerprintd apc_service:service_manager find;

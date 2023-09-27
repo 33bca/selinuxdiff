@@ -109,7 +109,6 @@ allow dumpstate hal_fingerprint_server:process signal;
 allow dumpstate hal_graphics_allocator_server:process signal;
 allow dumpstate hal_graphics_composer_server:process signal;
 allow dumpstate hal_health_server:process signal;
-allow dumpstate hal_input_processor_server:process signal;
 allow dumpstate hal_neuralnetworks_server:process signal;
 allow dumpstate hal_omx_server:process signal;
 allow dumpstate hal_power_server:process signal;
@@ -192,9 +191,6 @@ allow dumpstate recovery_data_file:dir r_dir_perms;
 allow dumpstate recovery_data_file:file r_file_perms;
 allow dumpstate update_engine_log_data_file:dir r_dir_perms;
 allow dumpstate update_engine_log_data_file:file r_file_perms;
-allow dumpstate user_profile_root_file:dir r_dir_perms;
-allow dumpstate user_profile_data_file:dir r_dir_perms;
-allow dumpstate user_profile_data_file:file r_file_perms;
 allow dumpstate misc_logd_file:dir r_dir_perms;
 allow dumpstate misc_logd_file:file r_file_perms;
 allow dumpstate prereboot_data_file:dir r_dir_perms;
@@ -205,7 +201,6 @@ allow dumpstate devpts:chr_file rw_file_perms;
 allow dumpstate media_rw_data_file:dir getattr;
 allow dumpstate proc_interrupts:file r_file_perms;
 allow dumpstate proc_zoneinfo:file r_file_perms;
-allow dumpstate su:tcp_socket { accept getopt read write };
 allow dumpstate ion_device:chr_file r_file_perms;
 allow dumpstate proc_stat:file r_file_perms;
 allow dumpstate proc_pressure_cpu:file r_file_perms;
@@ -351,6 +346,7 @@ allow dumpstate binderfs_logs:dir r_dir_perms;
 allow dumpstate binderfs_logs:file r_file_perms;
 allow dumpstate binderfs_logs_proc:file r_file_perms;
 allow dumpstate apex_info_file:file getattr;
+allow dumpstate proc_last_touch_events:file { open read };
 allow dumpstate adsprpcd_file:dir getattr;
 allow dumpstate bt_firmware_file:dir getattr;
 allow dumpstate bt_firmware_file:filesystem getattr;
@@ -359,7 +355,6 @@ allow dumpstate firmware_file:filesystem getattr;
 allow dumpstate vendor_vm_system_file:dir getattr;
 allow dumpstate vendor_vm_system_file:filesystem getattr;
 allow dumpstate debugfs_mmc:dir search;
-allow dumpstate vendor_hal_neuralnetworks_default:process signal;
 allow dumpstate hal_light_default:binder { call transfer };
 allow dumpstate hal_light_default:fd *;
 allow dumpstate hal_power_default:binder { call transfer };
@@ -367,13 +362,24 @@ allow dumpstate hal_power_default:fd *;
 allow dumpstate hal_dumpstate_default:binder { call transfer };
 allow dumpstate hal_dumpstate_default:fd *;
 allow dumpstate vendor_qms:binder { call transfer };
+allow dumpstate vendor_qms:binder call;
 allow dumpstate vendor_qms:fd *;
 allow dumpstate hal_bluetooth_default:binder { call transfer };
+allow dumpstate hal_bluetooth_default:binder call;
 allow dumpstate hal_bluetooth_default:fd *;
-allow dumpstate vendor_ims_dcservice:binder { call transfer };
-allow dumpstate vendor_ims_dcservice:fd *;
-allow dumpstate vendor_hal_qspa_default:binder { call transfer };
-allow dumpstate vendor_hal_qspa_default:fd *;
+allow dumpstate proc_tzdbg_dir:dir search;
+allow dumpstate proc_tzdbg_dir:file r_file_perms;
+allow dumpstate vendor_proc_perflock_records:file r_file_perms;
+allow dumpstate sysfs_bootinfo:file r_file_perms;
+allow dumpstate hal_misys_hwservice:hwservice_manager find;
+allow dumpstate hal_misys_default:binder call;
+allow dumpstate hal_misys_default:binder transfer;
+allow dumpstate minidump_partition:blk_file rw_file_perms;
+allow dumpstate vendor_proc_mimdlog:file r_file_perms;
+allow dumpstate procfs_memory:dir r_dir_perms;
+allow dumpstate procfs_memory:file r_file_perms;
+allow dumpstate sysfs_memory:dir r_dir_perms;
+allow dumpstate sysfs_memory:file r_file_perms;
 dontaudit dumpstate sysfs:file { getattr ioctl lock map open read watch watch_reads };
 dontaudit dumpstate sysfs:file *;
 dontaudit dumpstate hal_service_type:service_manager find;
@@ -391,7 +397,6 @@ dontaudit dumpstate mirror_data_file:dir search;
 dontaudit dumpstate mirror_data_file:dir getattr;
 dontaudit dumpstate linkerconfig_file:dir getattr;
 dontaudit dumpstate apex_mnt_dir:dir getattr;
-dontaudit dumpstate vendor_sysfs_scsi_host:file *;
 r_dir_file(dumpstate, domain)
 r_dir_file(dumpstate, cgroup)
 r_dir_file(dumpstate, cgroup_v2)
@@ -415,7 +420,6 @@ hal_client_domain(dumpstate, hal_fingerprint)
 hal_client_domain(dumpstate, hal_gnss)
 hal_client_domain(dumpstate, hal_graphics_allocator)
 hal_client_domain(dumpstate, hal_identity)
-hal_client_domain(dumpstate, hal_input_processor)
 hal_client_domain(dumpstate, hal_light)
 hal_client_domain(dumpstate, hal_neuralnetworks)
 hal_client_domain(dumpstate, hal_nfc)
@@ -424,6 +428,7 @@ hal_client_domain(dumpstate, hal_power_stats)
 hal_client_domain(dumpstate, hal_thermal)
 hal_client_domain(dumpstate, hal_vibrator)
 hal_client_domain(dumpstate, hal_wifi)
+hal_client_domain(dumpstate, hal_misight)
 add_service(dumpstate, dumpstate_service)
 type dumpstate, domain, mlstrustedsubject;
 type dumpstate_exec, exec_type, file_type, system_file_type;

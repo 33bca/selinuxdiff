@@ -1,17 +1,95 @@
-allow platform_app hal_aospa_powershare:binder transfer;
+allow platform_app vendor_hal_displayfeature_xiaomi_hwservice:hwservice_manager find;
+allow platform_app vendor_hal_displayfeature_xiaomi_default:binder call;
+allow platform_app hal_touchfeature_xiaomi_hwservice:hwservice_manager find;
 allow platform_app vendor_hal_display_color_server:binder { call transfer };
 allow platform_app vendor_hal_display_color_server:fd *;
 allow platform_app vendor_hal_display_color_hwservice:hwservice_manager find;
 allow platform_app nfc_service:service_manager find;
-allow platform_app vendor_fidotest:binder transfer;
-allow platform_app vendor_fidotest:binder { call transfer };
-allow platform_app vendor_fidotest:fd *;
+allow platform_app vendor_configs_file:file r_file_perms;
+allow platform_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+allow platform_app vendor_hal_camerapostproc_xiaomi:binder { call transfer };
+allow platform_app vendor_hal_camerapostproc_xiaomi:binder transfer;
+allow platform_app vendor_hal_camerapostproc_xiaomi:fd *;
+allow platform_app hal_camera_default:binder { call transfer };
+allow platform_app hal_camera_default:binder transfer;
+allow platform_app hal_camera_default:fd *;
+allow platform_app vendor_audio_data_file:dir write;
+allow platform_app vendor_audio_data_file:dir { add_name search };
+allow platform_app vendor_audio_data_file:file { append create getattr open read setattr write };
+allow platform_app sound_device:chr_file { open read write };
+allow platform_app mcd_data_file:dir search;
+allow platform_app mcd_data_file:file { getattr open read };
+allow platform_app adsprpcd_file:dir { getattr search };
+allow platform_app vendor_xdsp_device:chr_file { ioctl open read };
+allow platform_app hal_miface_hwservice:hwservice_manager find;
+allow platform_app hal_miface_default:binder call;
+allow platform_app hal_miriskmanager_hwservice:hwservice_manager find;
+allow platform_app hal_miriskmanager_default:binder call;
+allow platform_app hal_mfidoca_hwservice:hwservice_manager find;
+allow platform_app hal_mfidoca_default:binder call;
+allow platform_app hal_mlipay_hwservice:hwservice_manager find;
+allow platform_app hal_mlipay_default:binder call;
+allow platform_app hal_mtdservice_hwservice:hwservice_manager find;
+allow platform_app hal_mtdservice_default:binder { call transfer };
+allow platform_app hal_mtdservice_default:fd *;
+allow platform_app hal_tidaservice_hwservice:hwservice_manager find;
+allow platform_app hal_tidaservice_default:binder { call transfer };
+allow platform_app hal_tidaservice_default:fd *;
+allow platform_app hal_vsimapp_hwservice:hwservice_manager find;
+allow platform_app hal_vsimapp_default:binder { call transfer };
+allow platform_app hal_vsimapp_default:fd *;
+allow platform_app hal_otrpagent_hwservice:hwservice_manager find;
+allow platform_app hal_otrpagent_default:binder { call transfer };
+allow platform_app hal_otrpagent_default:fd *;
+allow platform_app hal_fingerprint_default:binder transfer;
+allow platform_app hal_fingerprint_default:binder { call transfer };
+allow platform_app hal_fingerprint_default:fd *;
+allow platform_app vendor_hal_fingerprint_hwservice_xiaomi:hwservice_manager { add find };
+allow platform_app goodix_fingerprint_service:service_manager { add find };
+allow platform_app vendor_mfp-daemon:binder transfer;
+allow platform_app vendor_mfp-daemon:binder { call transfer };
+allow platform_app vendor_mfp-daemon:fd *;
+allow platform_app vendor_fingerprint_data_file_fpdump:file read;
+allow platform_app vendor_dtool:binder call;
+allow platform_app hal_quickcamera_hwservice:hwservice_manager find;
+allow platform_app hal_quickcamera:binder { call transfer };
+allow platform_app hal_quickcamera:binder transfer;
+allow platform_app hal_quickcamera:fd *;
+allow platform_app hal_quickcamera_default:binder { call transfer };
+allow platform_app hal_quickcamera_default:binder transfer;
+allow platform_app hal_quickcamera_default:fd *;
+allow platform_app hal_misys_hwservice:hwservice_manager find;
+allow platform_app hal_misys_default:binder call;
+allow platform_app hal_miperf_hwservice:hwservice_manager find;
+allow platform_app hal_miperf_default:binder call;
+get_prop(platform_app, vendor_promotion_prop)
+get_prop(platform_app, vendor_touchfeature_prop)
 get_prop(platform_app, vendor_display_notch_prop)
 get_prop(platform_app, vendor_mpctl_prop)
+get_prop(platform_app, vendor_camera_sensor_prop)
+get_prop(platform_app, vendor_camera_p3enable_prop)
+get_prop(platform_app, vendor_audio_prop)
+get_prop(platform_app, qemu_hw_prop)
+get_prop(platform_app, vendor_passpoint_prop)
+get_prop(platform_app, exported_system_prop)
+get_prop(platform_app, vendor_camera_prop)
+get_prop(platform_app, vendor_displayfeature_prop)
+get_prop(platform_app, vendor_payment_security_prop)
+get_prop(platform_app, vendor_cpuid_prop)
+get_prop(platform_app, vendor_fp_prop)
+set_prop(platform_app, system_prop)
+binder_use(platform_app)
 hal_client_domain(platform_app, hal_fingerprint)
 hal_client_domain(platform_app, vendor_hal_perf)
 hal_client_domain(platform_app, vendor_hal_qspmhal)
+hal_client_domain(platform_app, vendor_hal_soter)
 hal_client_domain(platform_app, vendor_hal_scve)
 hal_client_domain(platform_app, vendor_hal_pasrmanager)
 hal_client_domain(platform_app, vendor_hal_cvp)
+hal_client_domain(platform_app, hal_dms)
+hal_client_domain(platform_app, vendor_hal_displayfeature_xiaomi)
+hal_client_domain(platform_app, hal_touchfeature_xiaomi)
+hal_client_domain(platform_app, vendor_hal_camerapostproc_xiaomi)
+hal_client_domain(platform_app, hal_quickcamera)
+hal_client_domain(platform_app, hal_misight)
 type platform_app, domain;

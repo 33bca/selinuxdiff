@@ -1,0 +1,22 @@
+allow hal_misight_server dumpstate:fifo_file write;
+allow hal_misight_server dumpstate:fd *;
+allow hal_misight_server hal_misight_client:binder transfer;
+allow hal_misight_server hal_misight_client:binder { call transfer };
+allow hal_misight_server hal_misight_client:fd *;
+allow hal_misight_server servicemanager:binder { call transfer };
+allow hal_misight_server servicemanager:fd *;
+allow hal_misight_client hal_misight_server:binder { call transfer };
+allow hal_misight_client hal_misight_server:binder transfer;
+allow hal_misight_client hal_misight_server:fd *;
+allow hal_misight_client hal_misight_service:service_manager find;
+allow hal_misight_default hal_misight_default:capability2 block_suspend;
+allow hal_misight_default vendor_bsp_data_log_file:dir create_dir_perms;
+allow hal_misight_default vendor_bsp_data_log_file:file create_file_perms;
+allow hal_misight_default vendor_ramdump_vendor_data_file:dir create_dir_perms;
+allow hal_misight_default vendor_ramdump_vendor_data_file:file create_file_perms;
+init_daemon_domain(hal_misight_default)
+binder_use(hal_misight_default)
+hal_server_domain(hal_misight_default, hal_misight)
+add_service(hal_misight_server, hal_misight_service)
+type hal_misight_default, domain, mlstrustedsubject;
+type hal_misight_default_exec, exec_type, file_type, vendor_file_type;

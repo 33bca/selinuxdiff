@@ -42,7 +42,6 @@ neverallow { domain -coredomain } time_prop:file no_rw_file_perms;
 neverallow { domain -coredomain } traced_enabled_prop:file no_rw_file_perms;
 neverallow { domain -coredomain } traced_lazy_prop:file no_rw_file_perms;
 neverallow { domain -coredomain } aac_drc_prop:property_service set;
-neverallow { domain -coredomain } adaptive_haptics_prop:property_service set;
 neverallow { domain -coredomain } arm64_memtag_prop:property_service set;
 neverallow { domain -coredomain } binder_cache_bluetooth_server_prop:property_service set;
 neverallow { domain -coredomain } binder_cache_system_server_prop:property_service set;
@@ -59,7 +58,6 @@ neverallow { domain -coredomain } device_config_runtime_native_boot_prop:propert
 neverallow { domain -coredomain } device_config_runtime_native_prop:property_service set;
 neverallow { domain -coredomain } device_config_surface_flinger_native_boot_prop:property_service set;
 neverallow { domain -coredomain } device_config_vendor_system_native_prop:property_service set;
-neverallow { domain -coredomain } device_config_vendor_system_native_boot_prop:property_service set;
 neverallow { domain -coredomain } fingerprint_prop:property_service set;
 neverallow { domain -coredomain } gwp_asan_prop:property_service set;
 neverallow { domain -coredomain } hal_instrumentation_prop:property_service set;

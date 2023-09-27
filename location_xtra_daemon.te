@@ -1,8 +1,6 @@
 allow vendor_location_xtra_daemon vendor_location:process sigchld;
 allow vendor_location_xtra_daemon vendor_location:fd *;
 allow vendor_location_xtra_daemon vendor_location:unix_dgram_socket { read sendto write };
-allow vendor_location_xtra_daemon su:tcp_socket { accept getopt read write };
-allow vendor_location_xtra_daemon su:fifo_file append;
 allow vendor_location_xtra_daemon vendor_location_data_file:dir create_dir_perms;
 allow vendor_location_xtra_daemon vendor_location_data_file:file create_file_perms;
 allow vendor_location_xtra_daemon vendor_location_socket:lnk_file { getattr open read };
@@ -13,9 +11,9 @@ allow vendor_location_xtra_daemon system_server:binder { call transfer };
 allow vendor_location_xtra_daemon system_server:binder transfer;
 allow vendor_location_xtra_daemon system_server:fd *;
 allow vendor_location_xtra_daemon system_server:fifo_file { append write };
-allow vendor_location_xtra_daemon vendor_qms:binder { call transfer };
-allow vendor_location_xtra_daemon vendor_qms:binder transfer;
-allow vendor_location_xtra_daemon vendor_qms:fd *;
+allow vendor_location_xtra_daemon vendor_sosd:binder { call transfer };
+allow vendor_location_xtra_daemon vendor_sosd:binder transfer;
+allow vendor_location_xtra_daemon vendor_sosd:fd *;
 allow vendor_location_xtra_daemon self:qipcrtr_socket create_socket_perms_no_ioctl;
 allow vendor_location_xtra_daemon vendor_qtrsdkservice_service:service_manager find;
 allow vendor_location_xtra_daemon vendor_qccvendor:binder { call transfer };
@@ -28,7 +26,6 @@ allow vendor_location_xtra_daemon incidentd:fd *;
 allow vendor_location_xtra_daemon incidentd:fifo_file { append write };
 allow vendor_location_xtra_daemon tombstoned:fd *;
 allow vendor_location_xtra_daemon tombstone_data_file:file append;
-unix_socket_connect(vendor_location_xtra_daemon, tombstoned_crash, vendor_location)
 unix_socket_connect(vendor_location_xtra_daemon, tombstoned_crash, tombstoned)
 get_prop(vendor_location_xtra_daemon, hwservicemanager_prop)
 get_prop(vendor_location_xtra_daemon, vendor_qcc_prop)

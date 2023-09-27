@@ -20,4 +20,3 @@ neverallow { domain -init } toolbox:process transition;
 neverallow { domain -init } vendor_init:process transition;
 neverallow { domain -init } vold:process { dyntransition transition };
 neverallow { domain -init } vendor_halserverdomain:process transition;
-allow { domain -init } su:binder { call transfer };

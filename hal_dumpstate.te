@@ -6,7 +6,6 @@ allow hal_dumpstate_server dumpstate:fd *;
 allow hal_dumpstate_server hal_dumpstate_client:binder transfer;
 allow hal_dumpstate_server hal_dumpstate_client:binder { call transfer };
 allow hal_dumpstate_server hal_dumpstate_client:fd *;
-allow hal_dumpstate_server su:tcp_socket { accept getopt read write };
 allow hal_dumpstate_server servicemanager:binder { call transfer };
 allow hal_dumpstate_server servicemanager:fd *;
 allow hal_dumpstate_client hal_dumpstate_server:binder { call transfer };
@@ -14,7 +13,6 @@ allow hal_dumpstate_client hal_dumpstate_server:binder transfer;
 allow hal_dumpstate_client hal_dumpstate_server:fd *;
 allow hal_dumpstate shell_data_file:file write;
 allow hal_dumpstate proc_interrupts:file r_file_perms;
-allow hal_dumpstate_default debugfs:dir { open read };
 allow hal_dumpstate_default dumpstate:binder transfer;
 init_daemon_domain(hal_dumpstate_default)
 set_prop(hal_dumpstate_server, hal_dumpstate_config_prop)

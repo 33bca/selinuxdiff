@@ -33,8 +33,6 @@ allow init tmpfs:dir mounton;
 allow init tmpfs:dir relabelfrom;
 allow init kmsg_device:chr_file { getattr relabelto write };
 allow init kmsg_device:chr_file { open read };
-allow init kmsg_debug_device:chr_file { open relabelto write };
-allow init debugfs:dir mounton;
 allow init properties_device:dir relabelto;
 allow init properties_device:file create_file_perms;
 allow init properties_serial:file { relabelto write };
@@ -63,6 +61,7 @@ allow init random_device:chr_file { open read };
 allow init block_device:dir relabelto;
 allow init block_device:lnk_file relabelto;
 allow init block_device:blk_file relabelto;
+allow init block_device:blk_file setattr;
 allow init dm_device:chr_file relabelto;
 allow init dm_device:chr_file { open read };
 allow init dm_device:chr_file rw_file_perms;
@@ -76,7 +75,6 @@ allow init kernel:security compute_create;
 allow init kernel:process { getsched setsched };
 allow init system_block_device:lnk_file relabelto;
 allow init system_block_device:blk_file relabelto;
-allow init system_block_device:blk_file write;
 allow init recovery_block_device:lnk_file relabelto;
 allow init recovery_block_device:blk_file relabelto;
 allow init userdata_block_device:lnk_file relabelto;
@@ -137,6 +135,7 @@ allow init cgroup:file rw_file_perms;
 allow init system_file:dir mounton;
 allow init linkerconfig_file:dir mounton;
 allow init vendor_file:dir mounton;
+allow init vendor_file:file execute;
 allow init system_data_root_file:dir mounton;
 allow init system_data_file:dir mounton;
 allow init system_data_file:file { getattr read };
@@ -169,10 +168,10 @@ allow init metadata_file:dir mounton;
 allow init dev_type:blk_file r_file_perms;
 allow init dev_type:dir create_dir_perms;
 allow init dev_type:lnk_file create;
-allow init debugfs_type:filesystem { mount unmount };
 allow init debugfs_tracing_debug:filesystem mount;
 allow init debugfs_tracing_debug:file { getattr relabelfrom };
 allow init debugfs_tracing_debug:dir { getattr relabelfrom };
+allow init debugfs_tracing_debug:dir mounton;
 allow init debugfs_tracing_debug:lnk_file { getattr relabelfrom };
 allow init unlabeled:filesystem { associate getattr mount quotaget quotamod relabelfrom remount unmount watch };
 allow init unlabeled:dir { create_dir_perms relabelfrom };
@@ -207,8 +206,6 @@ allow init owntty_device:chr_file { open read };
 allow init zero_device:chr_file { open read };
 allow init proc_net_type:file w_file_perms;
 allow init proc_filesystems:file r_file_perms;
-allow init overlayfs_file:dir { mounton relabelfrom write };
-allow init overlayfs_file:file append;
 allow init proc:file r_file_perms;
 allow init proc_bootconfig:file r_file_perms;
 allow init proc_bootconfig:file setattr;
@@ -308,6 +305,10 @@ allow init fuse:dir { getattr search };
 allow init userdata_sysdev:file create_file_perms;
 allow init rootdisk_sysdev:file create_file_perms;
 allow init pdx_performance_client_endpoint_socket_type:unix_stream_socket { bind create };
+allow init touchreport_exec:file { execute getattr open read };
+allow init touchreport:process { rlimitinh siginh transition };
+allow init tpevent_exec:file { execute getattr open read };
+allow init tpevent:process { rlimitinh siginh transition };
 allow init same_process_hal_file:dir mounton;
 allow init mnt_vendor_file:dir mounton;
 allow init mnt_product_file:dir mounton;
@@ -342,8 +343,16 @@ allow init vendor_sysfs_graphics:file setattr;
 allow init vendor_sysfs_qvr_external_sensor:file setattr;
 allow init vendor_spunvm_file:dir mounton;
 allow init vendor_spunvm_file:filesystem { mount relabelfrom relabelto };
-allow init vendor_sysfs_scsi_target:file w_file_perms;
-allow init vendor_sysfs_mmc_host:file w_file_perms;
+allow init minidump64_exec:file { execute getattr open read };
+allow init hwinfo_exec:file { execute getattr open read };
+allow init vendor_sysfs_qcom_battery:file setattr;
+allow init vendor_sysfs_usb_supply:file setattr;
+allow init vendor_sysfs_battery_supply:file setattr;
+allow init slad_exec:file { getattr open read };
+allow init sla_data_file:file rw_file_perms;
+allow init mi_ic_exec:file { execute getattr open read };
+allow init mi_ric_exec:file { execute getattr open read };
+allow init ffu_exec:file { execute getattr open read };
 allow vendor_init init:unix_stream_socket { read write };
 allow vendor_init kmsg_device:chr_file { getattr open write };
 allow vendor_init kmsg_device:chr_file write;
@@ -351,7 +360,6 @@ allow vendor_init device:dir mounton;
 allow vendor_init rootfs:lnk_file { create unlink };
 allow vendor_init cgroup:dir create_dir_perms;
 allow vendor_init cgroup:file w_file_perms;
-allow vendor_init cgroup:file r_file_perms;
 allow vendor_init cgroup_v2:dir create_dir_perms;
 allow vendor_init cgroup_v2:file w_file_perms;
 allow vendor_init configfs:dir mounton;
@@ -399,7 +407,6 @@ allow vendor_init vendor_persist_block_device:lnk_file relabelto;
 allow vendor_init vendor_persist_block_device:blk_file relabelto;
 allow vendor_init vendor_ipa_dev:chr_file w_file_perms;
 allow vendor_init vendor_ipa_dev:chr_file write;
-allow vendor_init vendor_ipa_dev:file create_file_perms;
 allow vendor_init proc:file write;
 allow vendor_init vendor_file:system module_load;
 allow vendor_init kernel:key search;
@@ -413,8 +420,21 @@ allow vendor_init vendor_sysfs_slpi:file write;
 allow vendor_init vendor_sysfs_scsi_host:file setattr;
 allow vendor_init vendor_camera_data_file:dir create_dir_perms;
 allow vendor_init vendor_tui_data_file:dir create_dir_perms;
-allow vendor_init proc_security:file rw_file_perms;
 allow vendor_init tee_device:chr_file getattr;
+allow vendor_init tmpfs:dir create_dir_perms;
+allow vendor_init tmpfs:dir { mounton relabelfrom relabelto };
+allow vendor_init tmpfs:file rw_file_perms;
+allow vendor_init block_device:lnk_file { relabelfrom relabelto };
+allow vendor_init block_device:lnk_file setattr;
+allow vendor_init block_device:file { mounton relabelfrom relabelto };
+allow vendor_init block_device:file setattr;
+allow vendor_init vendor_ramdump_block_device:lnk_file { relabelfrom relabelto };
+allow vendor_init vendor_ramdump_block_device:file { relabelfrom relabelto };
+allow vendor_init minidump_data_file:file create_file_perms;
+allow vendor_init minidump_data_file:dir create_dir_perms;
+allow vendor_init vendor_mi_ic_prop:property_service set;
+allow vendor_init vendor_mi_ric_prop:property_service set;
+allow vendor_init vendor_ffu_prop:property_service set;
 dontaudit init kernel:system module_request;
 allowxperm init dev_type:ioctl blk_file 0x125d;
 allowxperm init system_data_root_file:ioctl dir 0x587d;
@@ -426,7 +446,6 @@ allowxperm vendor_init data_file_type:ioctl dir { 0x6613 0x6615 };
 domain_trans(init, vendor_shell_exec, vendor-qti-testscripts)
 domain_trans(init, hal_health_default_exec, charger_vendor)
 domain_trans(init, vendor_toolbox_exec, vendor_modprobe)
-domain_trans(init, vendor_port-bridge_exec, vendor_netmgrd)
 domain_trans(init, vendor_modinstall-sh_exec, vendor_modprobe)
 r_dir_file(init, system_file)
 r_dir_file(init, contextmount_type)
@@ -448,7 +467,6 @@ get_prop(vendor_init, surfaceflinger_display_prop)
 get_prop(vendor_init, test_harness_prop)
 get_prop(vendor_init, theme_prop)
 get_prop(vendor_init, device_config_vendor_system_native_prop)
-get_prop(vendor_init, device_config_vendor_system_native_boot_prop)
 get_prop(vendor_init, vendor_soc_name_prop)
 get_prop(vendor_init, vendor_soc_model_prop)
 get_prop(vendor_init, vendor_media_performance_class)
@@ -456,7 +474,7 @@ get_prop(vendor_init, vendor_pcie_prop)
 get_prop(vendor_init, vendor_boot_mode_prop)
 get_prop(vendor_init, vendor_mmi_prop)
 get_prop(vendor_init, vendor_procomp_prop)
-get_prop(vendor_init, persist_debug_prop)
+get_prop(vendor_init, vendor_wlan_logs_prop_ro)
 set_prop(vendor_init, debug_prop)
 set_prop(vendor_init, logd_prop)
 set_prop(vendor_init, log_tag_prop)
@@ -464,7 +482,9 @@ set_prop(vendor_init, log_prop)
 set_prop(vendor_init, rebootescrow_hal_prop)
 set_prop(vendor_init, vendor_default_prop)
 set_prop(vendor_init, wifi_log_prop)
-set_prop(vendor_init, vendor_lmkd_prop)
+set_prop(vendor_init, vendor_displayfeature_prop)
+set_prop(vendor_init, vendor_promotion_prop)
+set_prop(vendor_init, vendor_touchfeature_prop)
 set_prop(vendor_init, system_prop)
 set_prop(vendor_init, vendor_usb_prop)
 set_prop(vendor_init, vendor_audio_prop)
@@ -477,18 +497,27 @@ set_prop(vendor_init, vendor_sensors_prop)
 set_prop(vendor_init, vendor_qteeconnector_opti_prop)
 set_prop(vendor_init, vendor_bluetooth_prop)
 set_prop(vendor_init, vendor_dcvs_prop)
-set_prop(vendor_init, vendor_dynamic_sensor_prop)
 set_prop(vendor_init, vendor_hvdcp_opti_prop)
 set_prop(vendor_init, vendor_video_prop)
 set_prop(vendor_init, vendor_wigig_prop)
 set_prop(vendor_init, vendor_qspm_prop)
 set_prop(vendor_init, vendor_mpctl_prop)
-set_prop(vendor_init, vendor_audio_debug_prop)
 set_prop(vendor_init, vendor_confqmaa)
 set_prop(vendor_init, vendor_disable_spu_prop)
 set_prop(vendor_init, vendor_pasr_prop)
-set_prop(vendor_init, vendor_modprobe_prop)
-set_prop(vendor_init, vendor_persist_rcs_qti_prop)
+set_prop(vendor_init, vendor_nfc_mi_prop)
+set_prop(vendor_init, vendor_qcc_prop)
+set_prop(vendor_init, vendor_ssr_prop)
+set_prop(vendor_init, vendor_passpoint_prop)
+set_prop(vendor_init, vendor_deviceid_prop)
+set_prop(vendor_init, vendor_onetrack_prop)
+set_prop(vendor_init, vendor_deviceorient_prop)
+set_prop(vendor_init, vendor_thermal_normal_prop)
+set_prop(vendor_init, vendor_fp_prop)
+set_prop(vendor_init, vendor_fp_info_prop)
+set_prop(vendor_init, vendor_slad_prop)
+set_prop(vendor_init, vendor_miwild_prop)
+set_prop(vendor_init, vendor_minetd_prop)
 type init, domain, mlstrustedsubject;
 type vendor_init, domain, mlstrustedsubject;
 type init_exec, exec_type, file_type, system_file_type;

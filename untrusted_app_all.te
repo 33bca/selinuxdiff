@@ -16,3 +16,4 @@ allow untrusted_app_all vendor_sysfs_esoc:dir search;
 allow untrusted_app_all vendor_sysfs_soc:dir search;
 allow untrusted_app_all vendor_sysfs_ssr:dir search;
 attribute untrusted_app_all;
+get_prop(untrusted_app_all, vendor_promotion_prop)

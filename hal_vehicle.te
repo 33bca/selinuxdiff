@@ -7,7 +7,6 @@ allow hal_vehicle_client hal_vehicle_server:fd *;
 allow hal_vehicle_server hal_vehicle_client:binder transfer;
 allow hal_vehicle_server hal_vehicle_client:binder { call transfer };
 allow hal_vehicle_server hal_vehicle_client:fd *;
-allow hal_vehicle_server su:tcp_socket { accept getopt read write };
 allow hal_vehicle_server servicemanager:binder { call transfer };
 allow hal_vehicle_server servicemanager:fd *;
 init_daemon_domain(hal_vehicle_default)

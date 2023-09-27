@@ -1,0 +1,34 @@
+allow hal_otrpagent_client hal_otrpagent_server:binder { call transfer };
+allow hal_otrpagent_client hal_otrpagent_server:binder transfer;
+allow hal_otrpagent_client hal_otrpagent_server:fd *;
+allow hal_otrpagent_client hal_otrpagent_hwservice:hwservice_manager find;
+allow hal_otrpagent_server hal_otrpagent_client:binder transfer;
+allow hal_otrpagent_server hal_otrpagent_client:binder { call transfer };
+allow hal_otrpagent_server hal_otrpagent_client:fd *;
+allow hal_otrpagent_default hal_otrpagent_hwservice:hwservice_manager add;
+allow hal_otrpagent_default system_app:fd *;
+allow hal_otrpagent_default system_app:binder transfer;
+allow hal_otrpagent_default untrusted_app_all:fd *;
+allow hal_otrpagent_default platform_app:binder transfer;
+allow hal_otrpagent_default platform_app:fd *;
+allow hal_otrpagent_default firmware_file:dir r_dir_perms;
+allow hal_otrpagent_default firmware_file:file r_file_perms;
+allow hal_otrpagent_default init:unix_stream_socket connectto;
+allow hal_otrpagent_default ion_device:chr_file rw_file_perms;
+allow hal_otrpagent_default mnt_vendor_file:dir { create_dir_perms relabelfrom };
+allow hal_otrpagent_default tee_device:chr_file rw_file_perms;
+allow hal_otrpagent_default ta_data_file:dir rw_dir_perms;
+allow hal_otrpagent_default ta_data_file:file rw_file_perms;
+allow hal_otrpagent_default hal_mtdservice_default:fd *;
+allow hal_otrpagent_default vendor_hal_tui_comm_hwservice:hwservice_manager find;
+allow hal_otrpagent_default vendor_hal_tui_comm_hwservice:binder { call transfer };
+allow hal_otrpagent_default vendor_hal_tui_comm_qti:binder { call transfer };
+allow hal_otrpagent_default vendor_dmabuf_qseecom_heap_device:chr_file { ioctl open read };
+allow hal_otrpagent_default vendor_dmabuf_qseecom_ta_heap_device:chr_file { ioctl open read };
+init_daemon_domain(hal_otrpagent_default)
+hwbinder_use(hal_otrpagent_default)
+hal_server_domain(hal_otrpagent_default, hal_otrpagent)
+add_hwservice(hal_otrpagent_server, hal_otrpagent_hwservice)
+type hal_otrpagent_default, domain;
+type hal_otrpagent_default_exec, exec_type, file_type, vendor_file_type;
+type hal_otrpagent_hwservice, hwservice_manager_type;

@@ -35,7 +35,6 @@ r_dir_file(lmkd, domain)
 r_dir_file(lmkd, sysfs_lowmemorykiller)
 unix_socket_send(lmkd, lmkd, statsd)
 unix_socket_send(lmkd, statsdw, statsd)
-get_prop(lmkd, vendor_lmkd_prop)
 get_prop(lmkd, hwservicemanager_prop)
 type lmkd, domain, mlstrustedsubject;
 type lmkd_exec, exec_type, file_type, system_file_type;

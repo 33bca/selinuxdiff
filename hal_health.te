@@ -7,7 +7,6 @@ allow hal_health_client hal_health_server:fd *;
 allow hal_health_server hal_health_client:binder transfer;
 allow hal_health_server hal_health_client:binder { call transfer };
 allow hal_health_server hal_health_client:fd *;
-allow hal_health_server su:tcp_socket { accept getopt read write };
 allow hal_health_server self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
 allow hal_health_server self:capability2 block_suspend;
 allow hal_health_server self:capability2 wake_alarm;

@@ -1,6 +1,5 @@
 allow gatekeeperd ion_device:chr_file r_file_perms;
 allow gatekeeperd system_file:dir r_dir_perms;
-allow gatekeeperd su:tcp_socket { accept getopt read write };
 allow gatekeeperd apc_service:service_manager find;
 allow gatekeeperd keystore_service:service_manager find;
 allow gatekeeperd legacykeystore_service:service_manager find;

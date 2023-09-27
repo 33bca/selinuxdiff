@@ -1,2 +1,0 @@
-neverallow hal_configstore_server { domain -hal_configstore_server -heapprofd -logd -prng_seeder -su -tombstoned -traced_perf }:unix_stream_socket *;
-neverallow hal_configstore_server { domain -hal_configstore_server -heapprofd -logd -prng_seeder -su -tombstoned -traced_perf }:unix_dgram_socket *;

@@ -1,1 +1,4 @@
+allow untrusted_app_30 vendor_audio_prop:file read;
+allow untrusted_app_30 sound_device:chr_file rw_file_perms;
+get_prop(untrusted_app_30, vendor_audio_prop)
 type untrusted_app_30, domain;

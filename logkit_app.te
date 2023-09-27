@@ -1,3 +1,0 @@
-permissive vendor_logkit_app;
-app_domain(vendor_logkit_app)
-type vendor_logkit_app, domain;

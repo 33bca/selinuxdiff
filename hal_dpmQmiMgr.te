@@ -4,7 +4,6 @@ allow vendor_hal_dpmQmiMgr self:socket create_socket_perms_no_ioctl;
 allow vendor_hal_dpmQmiMgr self:udp_socket create_socket_perms_no_ioctl;
 allow vendor_hal_dpmQmiMgr self:qipcrtr_socket create_socket_perms_no_ioctl;
 allow vendor_hal_dpmQmiMgr self:capability net_bind_service;
-allow vendor_hal_dpmQmiMgr vendor_diag_device:chr_file rw_file_perms;
 allowxperm vendor_hal_dpmQmiMgr self:ioctl socket { range 0xc300 0xc305 };
 allowxperm vendor_hal_dpmQmiMgr self:ioctl qipcrtr_socket { range 0xc300 0xc305 };
 allowxperm vendor_hal_dpmQmiMgr self:ioctl udp_socket { 0x6900 0x6902 };
@@ -13,7 +12,6 @@ allowxperm vendor_hal_dpmQmiMgr self:ioctl udp_socket { 0x8b00 0x8b02 0x8b04 0x8
 init_daemon_domain(vendor_hal_dpmQmiMgr)
 r_dir_file(vendor_hal_dpmQmiMgr, proc_net)
 r_dir_file(vendor_hal_dpmQmiMgr, proc_net_tcp_udp)
-r_dir_file(vendor_hal_dpmQmiMgr, vendor_sysfs_diag)
 get_prop(vendor_hal_dpmQmiMgr, hwservicemanager_prop)
 get_prop(vendor_hal_dpmQmiMgr, vendor_persist_dpm_prop)
 hwbinder_use(vendor_hal_dpmQmiMgr)

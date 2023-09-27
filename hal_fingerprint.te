@@ -6,7 +6,6 @@ allow hal_fingerprint_server dumpstate:fd *;
 allow hal_fingerprint_server hal_fingerprint_client:binder transfer;
 allow hal_fingerprint_server hal_fingerprint_client:binder { call transfer };
 allow hal_fingerprint_server hal_fingerprint_client:fd *;
-allow hal_fingerprint_server su:tcp_socket { accept getopt read write };
 allow hal_fingerprint_server servicemanager:binder { call transfer };
 allow hal_fingerprint_server servicemanager:fd *;
 allow hal_fingerprint_client hal_fingerprint_server:binder { call transfer };
@@ -15,10 +14,41 @@ allow hal_fingerprint_client hal_fingerprint_server:fd *;
 allow hal_fingerprint ion_device:chr_file r_file_perms;
 allow hal_fingerprint fingerprint_vendor_data_file:file create_file_perms;
 allow hal_fingerprint fingerprint_vendor_data_file:dir rw_dir_perms;
+allow hal_fingerprint_default vendor_fingerprint_data_file:dir create_dir_perms;
+allow hal_fingerprint_default vendor_fingerprint_data_file:file create_file_perms;
+allow hal_fingerprint_default vendor_fingerprint_data_file_fpdump:dir create_dir_perms;
+allow hal_fingerprint_default vendor_fingerprint_data_file_fpdump:file create_file_perms;
+allow hal_fingerprint_default vendor_hal_fingerprint_hwservice_xiaomi:hwservice_manager { add find };
+allow hal_fingerprint_default vendor_hal_perf_hwservice:hwservice_manager find;
+allow hal_fingerprint_default vendor_hal_perf_default:binder call;
+allow hal_fingerprint_default platform_app:binder { call transfer };
+allow hal_fingerprint_default platform_app:binder transfer;
+allow hal_fingerprint_default platform_app:fd *;
+allow hal_fingerprint_default system_app:binder { call transfer };
+allow hal_fingerprint_default system_app:binder transfer;
+allow hal_fingerprint_default system_app:fd *;
+allow hal_fingerprint_default sysfs:file write;
+allow hal_fingerprint_default vendor_sysfs_spss:dir search;
+allow hal_fingerprint_default vendor_sysfs_spss:file { open read };
+allow hal_fingerprint_default uhid_device:chr_file rw_file_perms;
+allow hal_fingerprint_default vendor_sysfs_graphics:dir r_dir_perms;
+allow hal_fingerprint_default vendor_sysfs_graphics:file rw_file_perms;
+allow hal_fingerprint_default input_device:dir r_dir_perms;
+allow hal_fingerprint_default input_device:chr_file rwx_file_perms;
+allow hal_fingerprint_default mnt_vendor_file:dir search;
+allow hal_fingerprint_default vendor_fingerprint_device:chr_file rwx_file_perms;
+allow hal_fingerprint_default tee_device:chr_file rw_file_perms;
+allow hal_fingerprint_default self:netlink_socket create_socket_perms_no_ioctl;
+allow hal_fingerprint_default vendor_sysfs_displayfeature:dir { open read };
+allow hal_fingerprint_default vendor_sysfs_displayfeature:file { open read };
+allow hal_fingerprint_default surfaceflinger:binder transfer;
 init_daemon_domain(hal_fingerprint_default)
 r_dir_file(hal_fingerprint, cgroup)
 r_dir_file(hal_fingerprint, cgroup_v2)
 r_dir_file(hal_fingerprint, sysfs)
+get_prop(hal_fingerprint_default, vendor_panel_info_prop)
+set_prop(hal_fingerprint_default, vendor_fp_prop)
+set_prop(hal_fingerprint_default, vendor_fp_info_prop)
 hal_server_domain(hal_fingerprint_default, hal_fingerprint)
 hal_attribute_service(hal_fingerprint, hal_fingerprint_service)
 hal_attribute_hwservice(hal_fingerprint, hal_fingerprint_hwservice)

@@ -1,7 +1,5 @@
 allow vendor_qms_app app_api_service:service_manager find;
-allow vendor_qms_app radio_service:service_manager find;
 app_domain(vendor_qms_app)
-net_domain(vendor_qms_app)
 hal_client_domain(vendor_qms_app, vendor_hal_perf)
 hal_client_domain(vendor_qms_app, vendor_hal_qms_qti)
 type vendor_qms_app, domain;

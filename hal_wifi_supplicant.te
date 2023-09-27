@@ -11,7 +11,6 @@ allow hal_wifi_supplicant_client hal_wifi_supplicant_server:fd *;
 allow hal_wifi_supplicant_server hal_wifi_supplicant_client:binder transfer;
 allow hal_wifi_supplicant_server hal_wifi_supplicant_client:binder { call transfer };
 allow hal_wifi_supplicant_server hal_wifi_supplicant_client:fd *;
-allow hal_wifi_supplicant_server su:tcp_socket { accept getopt read write };
 allow hal_wifi_supplicant kernel:system module_request;
 allow hal_wifi_supplicant self:capability { net_admin net_raw setgid setuid };
 allow hal_wifi_supplicant self:cap_userns { net_admin net_raw setgid setuid };
@@ -72,6 +71,7 @@ init_daemon_domain(hal_wifi_supplicant_default)
 r_dir_file(hal_wifi_supplicant, sysfs_type)
 r_dir_file(hal_wifi_supplicant, proc_net_type)
 get_prop(hal_wifi_supplicant_default, device_logging_prop)
+get_prop(hal_wifi_supplicant_default, vendor_wlan_eht_prop)
 binder_use(hal_wifi_supplicant_server)
 hwbinder_use(hal_wifi_supplicant_default)
 net_domain(hal_wifi_supplicant_default)

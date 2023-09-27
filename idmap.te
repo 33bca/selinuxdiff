@@ -7,7 +7,6 @@ allow idmap apk_tmp_file:file r_file_perms;
 allow idmap apk_tmp_file:dir search;
 allow idmap apk_private_tmp_file:file r_file_perms;
 allow idmap apk_private_tmp_file:dir search;
-allow idmap su:tcp_socket { accept getopt read write };
 dontaudit idmap installd:file read;
 r_dir_file(idmap, vendor_app_file)
 r_dir_file(idmap, vendor_overlay_file)

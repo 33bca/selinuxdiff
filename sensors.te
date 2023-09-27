@@ -20,9 +20,10 @@ allow vendor_sensors system_suspend_server:fd *;
 allow vendor_sensors system_suspend_hwservice:hwservice_manager find;
 allow vendor_sensors hidl_manager_hwservice:hwservice_manager find;
 allow vendor_sensors hal_system_suspend_service:service_manager find;
-allow vendor_sensors_qti vendor_diag_device:chr_file rw_file_perms;
-allow vendor_sensors_qti vendor_qlogd_exec:file rx_file_perms;
-allow vendor_sensors_qti vendor_shell_exec:file rx_file_perms;
+allow vendor_sensors vendor_sysfs_graphics:dir r_dir_perms;
+allow vendor_sensors vendor_sysfs_graphics:file r_file_perms;
+allow vendor_sensors vendor_sysfs_displayfeature:dir search;
+allow vendor_sensors vendor_sysfs_displayfeature:file { getattr open read };
 allow vendor_sensors_qti self:socket create_socket_perms;
 allow vendor_sensors_qti self:qipcrtr_socket create_socket_perms;
 allow vendor_sensors_qti mnt_vendor_file:dir r_dir_perms;
@@ -38,12 +39,10 @@ allowxperm vendor_sensors_qti self:ioctl qipcrtr_socket { range 0xc300 0xc305 };
 init_daemon_domain(vendor_sensors)
 init_daemon_domain(vendor_sensors_qti)
 r_dir_file(vendor_sensors, adsprpcd_file)
-r_dir_file(vendor_sensors_qti, vendor_sysfs_diag)
 get_prop(vendor_sensors, vendor_sensors_prop)
 get_prop(vendor_sensors, vendor_adsprpc_prop)
 get_prop(vendor_sensors, hwservicemanager_prop)
 get_prop(vendor_sensors_qti, vendor_sensors_prop)
-get_prop(vendor_sensors_qti, vendor_sensors_dbg_prop)
 binder_use(vendor_sensors)
 hwbinder_use(vendor_sensors)
 hal_attribute(sensors)

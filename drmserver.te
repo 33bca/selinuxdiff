@@ -27,7 +27,6 @@ allow drmserver radio_data_file:file { getattr map read };
 allow drmserver oemfs:dir search;
 allow drmserver oemfs:file r_file_perms;
 allow drmserver vendor_overlay_file:file { map read };
-allow drmserver su:tcp_socket { accept getopt read write };
 allow drmserver permission_service:service_manager find;
 allow drmserver mediametrics_service:service_manager find;
 allow drmserver selinuxfs:file w_file_perms;

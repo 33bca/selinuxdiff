@@ -7,7 +7,6 @@ allow radio radio_core_data_file:dir r_dir_perms;
 allow radio radio_core_data_file:file r_file_perms;
 allow radio net_data_file:dir search;
 allow radio net_data_file:file r_file_perms;
-allow radio su:tcp_socket { accept getopt read write };
 allow radio audioserver_service:service_manager find;
 allow radio cameraserver_service:service_manager find;
 allow radio drmserver_service:service_manager find;
@@ -19,26 +18,43 @@ allow radio timedetector_service:service_manager find;
 allow radio timezonedetector_service:service_manager find;
 allow radio proc_cmdline:file r_file_perms;
 allow radio vendor_atfwd:binder transfer;
-allow radio vendor_ims_service:binder transfer;
 allow radio vendor_file:lnk_file r_file_perms;
 allow radio vendor_framework_file:file r_file_perms;
 allow radio vendor_framework_file:dir search;
 allow radio vendor_hal_imsrtp_hwservice:hwservice_manager find;
 allow radio mediaextractor_service:service_manager find;
 allow radio vendor_avtimer_device:chr_file r_file_perms;
+allow radio vendor_hal_datafactory_hwservice:hwservice_manager find;
+allow radio vendor_hal_latency_hwservice:hwservice_manager find;
+allow radio vendor_cnd:binder { call transfer };
+allow radio vendor_cnd:fd *;
 allow radio vendor_diag_device:chr_file rw_file_perms;
-allow radio vendor_cnd:binder transfer;
-allow radio vendor_hal_atfwd_hwservice:hwservice_manager find;
-allow radio hidl_base_hwservice:hwservice_manager add;
+allow radio vendor_audio_prop:file read;
+allow radio vendor_audio_prop:file open;
+allow radio vendor_audio_prop:file getattr;
+allow radio vendor_audio_prop:file map;
+allow radio wifinl80211_service:service_manager find;
+allow radio wificond:binder { call transfer };
+allow radio proc_modem_enhance:file r_file_perms;
+allow radio hal_misys_hwservice:hwservice_manager find;
+allow radio hal_misys_hwservice:binder call;
+allow radio hal_misys_default:binder call;
+allow radio vendor_modem_data_file:dir rw_dir_perms;
+allow radio vendor_modem_data_file:file { create getattr open read unlink write };
+allow radio hal_vsimapp_hwservice:hwservice_manager find;
+allow radio hal_vsimapp_default:binder { call transfer };
+allow radio hal_vsimapp_default:fd *;
+allow radio hal_miqms_hwservice:hwservice_manager find;
+allow radio hal_miqms_default:binder { call transfer };
 r_dir_file(radio, vendor_sysfs_diag)
-r_dir_file(radio, vendor_mbn_data_file)
 get_prop(radio, vendor_radio_prop)
+get_prop(radio, vendor_wlan_china_sar_prop)
 binder_service(radio)
 hwbinder_use(radio)
 net_domain(radio)
 hal_client_domain(radio, hal_telephony)
 hal_client_domain(radio, vendor_hal_perf)
 hal_client_domain(radio, vendor_hal_qspmhal)
-hal_client_domain(radio, vendor_hal_imsfactory)
+hal_client_domain(radio, vendor_hal_datafactory_qti)
 add_service(radio, radio_service)
 type radio, bluetoothdomain, domain, mlstrustedsubject;

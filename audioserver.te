@@ -1,10 +1,17 @@
 allow audioserver hal_audio_server:process signal;
 allow audioserver sensorservice_service:service_manager find;
 allow audioserver system_server:unix_stream_socket { read write };
+allow audioserver system_server:dir search;
 allow audioserver bootanim:binder transfer;
 allow audioserver bootanim:binder { call transfer };
 allow audioserver bootanim:fd *;
-allow audioserver vendor_diag_device:chr_file rw_file_perms;
-r_dir_file(audioserver, vendor_sysfs_diag)
+allow audioserver mediaserver:dir search;
+allow audioserver mediaserver:file { open read };
+allow audioserver system_app:dir search;
+allow audioserver hal_audio_default:process signal;
+allow audioserver sound_device:chr_file rw_file_perms;
 get_prop(audioserver, vendor_audio_prop)
+get_prop(audioserver, bootanim_system_prop)
+set_prop(audioserver, audio_prop)
+hal_client_domain(audioserver, hal_dms)
 type audioserver, domain;

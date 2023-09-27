@@ -1,0 +1,5 @@
+allow vendor_l5_hal_test vendor_l5_hal_test:qipcrtr_socket create;
+allow vendor_l5_hal_test stmvl53l5_device:chr_file { ioctl open read write };
+init_daemon_domain(vendor_l5_hal_test)
+type vendor_l5_hal_test, domain;
+type vendor_l5_hal_test_exec, exec_type, file_type, vendor_file_type;
