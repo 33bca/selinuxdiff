@@ -346,6 +346,8 @@ allow dumpstate binderfs_logs:dir r_dir_perms;
 allow dumpstate binderfs_logs:file r_file_perms;
 allow dumpstate binderfs_logs_proc:file r_file_perms;
 allow dumpstate apex_info_file:file getattr;
+allow dumpstate display_trace_data_file:dir rw_dir_perms;
+allow dumpstate display_trace_data_file:file create_file_perms;
 allow dumpstate proc_last_touch_events:file { open read };
 allow dumpstate adsprpcd_file:dir getattr;
 allow dumpstate bt_firmware_file:dir getattr;
@@ -367,6 +369,8 @@ allow dumpstate vendor_qms:fd *;
 allow dumpstate hal_bluetooth_default:binder { call transfer };
 allow dumpstate hal_bluetooth_default:binder call;
 allow dumpstate hal_bluetooth_default:fd *;
+allow dumpstate vendor_ims_dcservice:binder { call transfer };
+allow dumpstate vendor_ims_dcservice:fd *;
 allow dumpstate proc_tzdbg_dir:dir search;
 allow dumpstate proc_tzdbg_dir:file r_file_perms;
 allow dumpstate vendor_proc_perflock_records:file r_file_perms;
@@ -429,6 +433,8 @@ hal_client_domain(dumpstate, hal_thermal)
 hal_client_domain(dumpstate, hal_vibrator)
 hal_client_domain(dumpstate, hal_wifi)
 hal_client_domain(dumpstate, hal_misight)
+hal_client_domain(dumpstate, hal_mrm)
+hal_client_domain(dumpstate, hal_blackboximpl)
 add_service(dumpstate, dumpstate_service)
 type dumpstate, domain, mlstrustedsubject;
 type dumpstate_exec, exec_type, file_type, system_file_type;

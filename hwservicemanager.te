@@ -15,6 +15,11 @@ allow hwservicemanager wdsdaemon:file read;
 allow hwservicemanager wdsdaemon:file open;
 allow hwservicemanager wdsdaemon:process getattr;
 allow hwservicemanager wdsdaemon:binder transfer;
+allow hwservicemanager mpbe:dir search;
+allow hwservicemanager mpbe:file read;
+allow hwservicemanager mpbe:file open;
+allow hwservicemanager mpbe:process getattr;
+allow hwservicemanager mpbe:binder transfer;
 r_dir_file(hwservicemanager, selinuxfs)
 type hwservicemanager, domain, mlstrustedsubject;
 type hwservicemanager_exec, exec_type, file_type, system_file_type;

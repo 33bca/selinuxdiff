@@ -1,10 +1,14 @@
 /(odm|system/odm|vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hardware\.vibratorfeature\.service u:object_r:hal_vibrator_default_exec:s0
+/(odm|vendor)/bin/hw/vendor\.qti\.camera\.provider-service u:object_r:hal_camera_default_exec:s0
+/(odm|vendor)/bin/hw/vendor\.qti\.camera\.provider-service_64 u:object_r:hal_camera_default_exec:s0
+/(odm|vendor)/bin/hw/vendor\.qti\.camera\.provider@2\.[0-9]+-service u:object_r:hal_camera_default_exec:s0
+/(odm|vendor)/bin/hw/vendor\.qti\.camera\.provider@2\.[0-9]+-service_64 u:object_r:hal_camera_default_exec:s0
 /(odm|vendor/odm)/bin/hw/android\.hardware\.biometrics\.face-aidl-service u:object_r:hal_face_default_exec:s0
 /(odm|vendor/odm)/bin/mifaced@1.0 u:object_r:hal_miface_default_exec:s0
 /(odm|vendor/odm|system/vendor)/bin/fidoca u:object_r:hal_mfidoca_default_exec:s0
-/(odm|vendor/odm|system/vendor)/bin/miriskmanagerd@1.0 u:object_r:hal_miriskmanager_default_exec:s0
 /(odm|vendor/odm|system/vendor)/bin/mlipayd u:object_r:hal_mlipay_default_exec:s0
 /(odm|vendor/odm|system/vendor)/bin/mlipayd@1.1 u:object_r:hal_mlipay_default_exec:s0
+/(odm|vendor/odm|system/vendor)/bin/mrmd u:object_r:hal_mrm_default_exec:s0
 /(odm|vendor/odm|system/vendor)/bin/mtd u:object_r:hal_mtdservice_default_exec:s0
 /(odm|vendor/odm|system/vendor)/bin/mtd@1.1 u:object_r:hal_mtdservice_default_exec:s0
 /(odm|vendor/odm|system/vendor)/bin/mtd@1.2 u:object_r:hal_mtdservice_default_exec:s0
@@ -21,12 +25,14 @@
 /(odm|vendor/odm|vendor|system/vendor)/bin/hw/vendor\.nxp\.hardware\.nfc@2\.0-service u:object_r:hal_nfc_default_exec:s0
 /(odm|vendor/odm|vendor|system/vendor)/bin/hw/vendor\.xiaomi\.hw\.touchfeature@1\.0-service u:object_r:hal_touchfeature_xiaomi_default_exec:s0
 /(odm|vendor/odm|vendor|system/vendor)/bin/l5_hal_test u:object_r:vendor_l5_hal_test_exec:s0
+/(odm|vendor/odm|vendor|system/vendor)/bin/l8_hal_test u:object_r:vendor_l5_hal_test_exec:s0
 /(odm|vendor/odm|vendor|system/vendor)/bin/touch_delta u:object_r:touchreport_exec:s0
 /(odm|vendor/odm|vendor|system/vendor)/bin/touch_raw u:object_r:touchreport_exec:s0
 /(odm|vendor/odm|vendor|system/vendor)/bin/touch_report u:object_r:touchreport_exec:s0
 /(odm|vendor/odm|vendor|system/vendor)/bin/toucheventcheck u:object_r:tpevent_exec:s0
 /(odm|vendor/odm|vendor|system/vendor)/bin/touchsensor u:object_r:touchreport_exec:s0
 /(vendor|odm)/etc/init.panel_info.sh u:object_r:vendor_touch_init_shell_exec:s0
+/(vendor|odm)/lib(64)?/libmialgo_ai_vision\.so u:object_r:same_process_hal_file:s0
 /(vendor|sustem/vendor)/bin/hw/android\.hardware\.confirmationui@1\.0-service u:object_r:hal_confirmationui_default_exec:s0
 /(vendor|system/vendor)/bin/MI_IC u:object_r:mi_ic_exec:s0
 /(vendor|system/vendor)/bin/MI_RIC u:object_r:mi_ric_exec:s0
@@ -41,6 +47,7 @@
 /(vendor|system/vendor)/bin/ffu u:object_r:ffu_exec:s0
 /(vendor|system/vendor)/bin/fstman u:object_r:vendor_fstman_exec:s0
 /(vendor|system/vendor)/bin/garden_app u:object_r:vendor_location_garden_app_exec:s0
+/(vendor|system/vendor)/bin/general_service64 u:object_r:minidump64_exec:s0
 /(vendor|system/vendor)/bin/grep u:object_r:vendor_toolbox_exec:s0
 /(vendor|system/vendor)/bin/hostapd_cli u:object_r:vendor_hostapd_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.atrace@1\.0-service u:object_r:hal_atrace_default_exec:s0
@@ -82,6 +89,7 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.0-service-lazy u:object_r:hal_drm_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service.widevine u:object_r:vendor_hal_drm_widevine_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.drm@[0-9]+\.[2-9]+-service-lazy.widevine u:object_r:vendor_hal_drm_widevine_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.dumpstate-service.xiaomi u:object_r:hal_dumpstate_impl_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.dumpstate-service\.example u:object_r:hal_dumpstate_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.dumpstate-service\.qti u:object_r:hal_dumpstate_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.dumpstate@1\.1-service\.qti u:object_r:hal_dumpstate_default_exec:s0
@@ -162,6 +170,7 @@
 /(vendor|system/vendor)/bin/hw/sxrservice u:object_r:vendor_sxrd_vndr_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.cit.bluetooth@1.0-service u:object_r:hal_cit_bluetooth_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.cit.wifi@1.0-service u:object_r:hal_cit_wifi_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor.xiaomi.hardware.blackbox.service u:object_r:hal_blackboximpl_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.hardware.cld@1.0-service u:object_r:hal_cld_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.hardware.fbo@1.0-service u:object_r:hal_fbo_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.hardware.micharge@1.0-service u:object_r:hal_micharge_default_exec:s0
@@ -172,6 +181,7 @@
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.hardware.misys@3.0-service u:object_r:hal_misys_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.hardware.misys@4.0-service u:object_r:hal_misys_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.hardware.quickcamera@1.0-service u:object_r:hal_quickcamera_default_exec:s0
+/(vendor|system/vendor)/bin/hw/vendor.xiaomi.hardware.swap@1.0-service u:object_r:hal_swap_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.hidl.minet@1.0-service u:object_r:hal_minet_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.hidl.miwill@1.0-service u:object_r:hal_miwill_default_exec:s0
 /(vendor|system/vendor)/bin/hw/vendor.xiaomi.modem.qms@1.0-service u:object_r:hal_miqms_default_exec:s0
@@ -250,6 +260,7 @@
 /(vendor|system/vendor)/bin/mm-audio-ftm u:object_r:vendor_audioftm_exec:s0
 /(vendor|system/vendor)/bin/mmi u:object_r:vendor_mmi_exec:s0
 /(vendor|system/vendor)/bin/mmid u:object_r:vendor_mmi_exec:s0
+/(vendor|system/vendor)/bin/mpbe_service u:object_r:mpbe_exec:s0
 /(vendor|system/vendor)/bin/msm_irqbalance u:object_r:vendor_msm_irqbalanced_exec:s0
 /(vendor|system/vendor)/bin/nqnfcinfo u:object_r:vendor_nqnfcinfo_exec:s0
 /(vendor|system/vendor)/bin/power_off_alarm u:object_r:vendor_power_off_alarm_exec:s0
@@ -287,7 +298,8 @@
 /(vendor|system/vendor)/bin/wigignpt u:object_r:vendor_wigignpt_exec:s0
 /(vendor|system/vendor)/bin/wlanramdumpcollector u:object_r:wlanramdumpcollector_exec:s0
 /(vendor|system/vendor)/bin/xtwifi-client u:object_r:vendor_location_xtwifi_client_exec:s0
-/(vendor|system/vendor)/bin/xtwifi-inet-agent u:object_r:vendor_location_xtwifi_inetagent_exec:s0
+/(vendor|system/vendor)/etc/iobooster.conf u:object_r:vendor_configs_file:s0
+/(vendor|system/vendor)/etc/ioturbo.conf u:object_r:vendor_configs_file:s0
 /(vendor|system/vendor)/lib(64)?/hw/android\.hardware\.graphics\.mapper@2\.0-impl-2\.1\.so u:object_r:same_process_hal_file:s0
 /(vendor|system/vendor)/lib(64)?/hw/android\.hardware\.graphics\.mapper@2\.0-impl\.so u:object_r:same_process_hal_file:s0
 /(vendor|system/vendor)/lib(64)?/hw/android\.hardware\.graphics\.mapper@3\.0-impl\.so u:object_r:same_process_hal_file:s0
@@ -298,6 +310,7 @@
 /(vendor|system/vendor)/lib(64)?/libhwbinder.so u:object_r:same_process_hal_file:s0
 /cache/mqsas(/.*)? u:object_r:mqsas_data_file:s0
 /data/(misc|vendor)/hbtp(/.*)? u:object_r:vendor_hbtp_log_file:s0
+/data/misc/display(/.*)? u:object_r:display_trace_data_file:s0
 /data/vendor/(qcc-trd|qdmastats)(/.*)? u:object_r:vendor_qcc_trd_data_file:s0
 /data/vendor/(qcc|qdma)(/.*)? u:object_r:vendor_qccvendor_data_file:s0
 /data/vendor/audio(/.*)? u:object_r:vendor_audio_data_file:s0
@@ -311,6 +324,7 @@
 /data/vendor/dataqti(/.*)? u:object_r:vendor_qti_data_file:s0
 /data/vendor/diag(/.*)? u:object_r:minidump_data_file:s0
 /data/vendor/display(/.*)? u:object_r:vendor_display_vendor_data_file:s0
+/data/vendor/dlsc(/.*)? u:object_r:vendor_dlsc_data_file:s0
 /data/vendor/dolby(/.*)? u:object_r:vendor_data_file:s0
 /data/vendor/dpm_vndr(/.*)? u:object_r:vendor_dpm_vndr_data_file:s0
 /data/vendor/face3d_dir(/.*)? u:object_r:vendor_biometricsface_data_file:s0
@@ -342,6 +356,7 @@
 /data/vendor/modem(/.*)? u:object_r:vendor_modem_data_file:s0
 /data/vendor/modem_config(/.*)? u:object_r:vendor_mbn_data_file:s0
 /data/vendor/modem_dump(/.*)? u:object_r:vendor_modem_dump_file:s0
+/data/vendor/mpbe(/.*)? u:object_r:mpbe_data_file:s0
 /data/vendor/netmgr(/.*)? u:object_r:vendor_netmgr_data_file:s0
 /data/vendor/netmgr/recovery(/.*)? u:object_r:vendor_netmgr_recovery_data_file:s0
 /data/vendor/nfc(/.*)? u:object_r:vendor_nfc_vendor_data_file:s0
@@ -367,6 +382,7 @@
 /data/vendor/thermal(/.*)? u:object_r:thermal_data_file:s0
 /data/vendor/time(/.*)? u:object_r:vendor_time_data_file:s0
 /data/vendor/tloc(/.*)? u:object_r:vendor_tlocd_data_file:s0
+/data/vendor/tlpd(/.*)? u:object_r:vendor_tlpd_data_file:s0
 /data/vendor/tombstones(/.*)? u:object_r:vendor_tombstone_data_file:s0
 /data/vendor/touch(/.*)? u:object_r:vendor_data_touchreport_file:s0
 /data/vendor/tui(/.*)? u:object_r:vendor_tui_data_file:s0
@@ -389,6 +405,7 @@
 /dev/aud_pasthru_adsp u:object_r:vendor_agm_device:s0
 /dev/avtimer u:object_r:vendor_avtimer_device:s0
 /dev/block/by-name/bk_07 u:object_r:ffu_partition:s0
+/dev/block/by-name/blackbox u:object_r:blackbox_block_device:s0
 /dev/block/by-name/crash_history u:object_r:minidump_partition:s0
 /dev/block/by-name/ffu u:object_r:ffu_partition:s0
 /dev/block/by-name/gsort u:object_r:gsort_block_device:s0
@@ -541,6 +558,8 @@
 /dev/block/sde u:object_r:boot_block_device:s0
 /dev/block/sdf u:object_r:boot_block_device:s0
 /dev/block/zram0 u:object_r:swap_block_device:s0
+/dev/bt_cp_ctrl u:object_r:hci_attach_dev:s0
+/dev/btfmcodec_dev u:object_r:hci_attach_dev:s0
 /dev/btfmslim u:object_r:vendor_bt_device:s0
 /dev/btpower u:object_r:vendor_bt_device:s0
 /dev/byte-cntr u:object_r:vendor_qdss_device:s0
@@ -566,6 +585,7 @@
 /dev/dma_heap/qcom,secure-sp-tz u:object_r:vendor_dmabuf_secure_sp_tz_heap_device:s0
 /dev/dma_heap/qcom,sp-hlos u:object_r:vendor_dmabuf_sp_hlos_heap_device:s0
 /dev/dma_heap/qcom,system u:object_r:vendor_dmabuf_system_heap_device:s0
+/dev/dma_heap/qcom,system-uncached u:object_r:vendor_dmabuf_system_uncached_heap_device:s0
 /dev/dma_heap/qcom,user-contig u:object_r:vendor_dmabuf_user_contig_heap_device:s0
 /dev/dpl_ctrl u:object_r:vendor_rmnet_device:s0
 /dev/dri/card0 u:object_r:graphics_device:s0
@@ -613,6 +633,7 @@
 /dev/mhi_.* u:object_r:vendor_mhi_device:s0
 /dev/mhi_.*_pipe_4 u:object_r:vendor_mhi_diag_device:s0
 /dev/mi_display/disp_feature u:object_r:vendor_displayfeature_device:s0
+/dev/mi_display/disp_log u:object_r:vendor_displaylog_device:s0
 /dev/migt u:object_r:migt_dev:s0
 /dev/mnh_sm u:object_r:vendor_easel_device:s0
 /dev/msm_adsp_sleepmon u:object_r:vendor_adsp_sleepmon_device:s0
@@ -622,8 +643,11 @@
 /dev/nq-nci u:object_r:nfc_device:s0
 /dev/qbt.* u:object_r:vendor_qbt_device:s0
 /dev/qce u:object_r:vendor_qce_device:s0
+/dev/qcom_haptic u:object_r:aac_richtap_dev_device:s0
 /dev/qg u:object_r:vendor_qg_device:s0
 /dev/qg_battery u:object_r:vendor_qg_device:s0
+/dev/qmc_cma u:object_r:vendor_qmc_cma_device:s0
+/dev/qmc_dma u:object_r:vendor_qmc_dma_device:s0
 /dev/qsee_ipc_irq_spss u:object_r:vendor_qsee_ipc_irq_spss_device:s0
 /dev/qseecom u:object_r:tee_device:s0
 /dev/qvr_external_sensor_ioctl u:object_r:vendor_qvr_external_sensor_device:s0
@@ -680,6 +704,7 @@
 /dev/socket/thermal-recv-passive-client u:object_r:vendor_thermal_socket:s0
 /dev/socket/thermal-send-client u:object_r:vendor_thermal_socket:s0
 /dev/socket/thermal-send-rule u:object_r:vendor_thermal_socket:s0
+/dev/socket/tlpd(/.*)? u:object_r:vendor_tlpd_socket:s0
 /dev/socket/vendor_wpa_wlan[0-9] u:object_r:vendor_wifi_vendor_wpa_socket:s0
 /dev/socket/vuidmgr u:object_r:vendor_vuidmgr_socket:s0
 /dev/socket/wifihal(/.*)? u:object_r:vendor_wifihal_socket:s0
@@ -787,6 +812,14 @@
 /sys/devices/platform/soc/188101c.remoteproc-spss/remoteproc/remoteproc[0-9]+/coredump u:object_r:vendor_sysfs_ssr_coredump_toggle:s0
 /sys/devices/platform/soc/188101c.remoteproc-spss/remoteproc/remoteproc[0-9]+/name u:object_r:vendor_sysfs_ssr:s0
 /sys/devices/platform/soc/188101c.remoteproc-spss/remoteproc/remoteproc[0-9]+/recovery u:object_r:vendor_sysfs_ssr_toggle:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:0/block/sda/queue/read_ahead_kb u:object_r:vendor_sysfs_sd:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:1/block/sdb/queue/read_ahead_kb u:object_r:vendor_sysfs_sd:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:2/block/sdc/queue/read_ahead_kb u:object_r:vendor_sysfs_sd:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:3/block/sdd/queue/read_ahead_kb u:object_r:vendor_sysfs_sd:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:4/block/sde/queue/read_ahead_kb u:object_r:vendor_sysfs_sd:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:5/block/sdf/queue/read_ahead_kb u:object_r:vendor_sysfs_sd:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:6/block/sdg/queue/read_ahead_kb u:object_r:vendor_sysfs_sd:s0
+/sys/devices/platform/soc/1d84000.ufshc/host0/target0:0:0/0:0:0:7/block/sdh/queue/read_ahead_kb u:object_r:vendor_sysfs_sd:s0
 /sys/devices/platform/soc/2400000.remoteproc-slpi/remoteproc/remoteproc[0-9]+/coredump u:object_r:vendor_sysfs_ssr_coredump_toggle:s0
 /sys/devices/platform/soc/2400000.remoteproc-slpi/remoteproc/remoteproc[0-9]+/name u:object_r:vendor_sysfs_ssr:s0
 /sys/devices/platform/soc/2400000.remoteproc-slpi/remoteproc/remoteproc[0-9]+/recovery u:object_r:vendor_sysfs_ssr_toggle:s0
@@ -824,6 +857,8 @@
 /sys/devices/platform/soc/soc:qcom,ipa_fws/subsys[0-9]+/restart_level u:object_r:vendor_sysfs_ssr_toggle:s0
 /sys/devices/platform/soc/soc:qcom,kgsl-hyp/subsys[0-9]+/name u:object_r:vendor_sysfs_ssr:s0
 /sys/devices/platform/soc/soc:qcom,kgsl-hyp/subsys[0-9]+/restart_level u:object_r:vendor_sysfs_ssr_toggle:s0
+/sys/devices/platform/soc/soc:qcom,remoteproc-esoc0/esoc0/remoteproc/remoteproc[0-9]+/name u:object_r:vendor_sysfs_ssr:s0
+/sys/devices/platform/soc/soc:qcom,remoteproc-esoc0/esoc0/remoteproc/remoteproc[0-9]+/recovery u:object_r:vendor_sysfs_ssr_toggle:s0
 /sys/devices/platform/soc/soc:qcom,svm_neuron_block/soc:qcom,svm_neuron_block:application/blk_name u:object_r:vendor_sysfs_svm_neuron:s0
 /sys/devices/platform/soc/soc:qcom,trustedvm@d0800000/subsys[0-9]+/name u:object_r:vendor_sysfs_ssr:s0
 /sys/devices/platform/soc/soc:qcom,trustedvm@d0800000/subsys[0-9]+/restart_level u:object_r:vendor_sysfs_ssr_toggle:s0
@@ -911,6 +946,7 @@
 /sys/devices/virtual/xt_hardidletimer/timers(/.*)? u:object_r:vendor_sysfs_data:s0
 /sys/devices/virtual/xt_idletimer/timers(/.*)? u:object_r:vendor_sysfs_data:s0
 /sys/firmware/devicetree/base/memory/ddr_device_type u:object_r:vendor_sysfs_ddr:s0
+/sys/kernel/reserve_pool(/.*)? u:object_r:sysfs_perf:s0
 /sys/module/cpu_boost(/.*)? u:object_r:vendor_sysfs_cpu_boost:s0
 /sys/module/drm/parameters/vblankoffdelay u:object_r:vendor_sysfs_graphics:s0
 /sys/module/microdump_collector/parameters/.* u:object_r:vendor_sysfs_microdump:s0
@@ -936,6 +972,7 @@
 /vendor/bin/dc_cal u:object_r:DualCameraCal_exec:s0
 /vendor/bin/diag-router u:object_r:vendor_diag-router_exec:s0
 /vendor/bin/diag_mdlog u:object_r:vendor_qlogd_exec:s0
+/vendor/bin/dlsc u:object_r:vendor_dlsc_exec:s0
 /vendor/bin/dspservice u:object_r:vendor_dspservice_exec:s0
 /vendor/bin/embmsslServer u:object_r:vendor_hal_embmssl_qti_exec:s0
 /vendor/bin/feature_enabler_client u:object_r:vendor_feature_enabler_client_exec:s0
@@ -946,6 +983,8 @@
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service\.fpc u:object_r:hal_fingerprint_default_exec:s0
 /vendor/bin/hw/android\.hardware\.bluetooth@1\.0-service-qti u:object_r:hal_bluetooth_default_exec:s0
 /vendor/bin/hw/android\.hardware\.bluetooth@1\.1-service-qti u:object_r:hal_bluetooth_default_exec:s0
+/vendor/bin/hw/android\.hardware\.camera\.provider@2\.7-virtual-camera-service u:object_r:hal_camera_default_exec:s0
+/vendor/bin/hw/android\.hardware\.contexthub-service\.qmi u:object_r:hal_contexthub_default_exec:s0
 /vendor/bin/hw/android\.hardware\.drm@[0-9]+\.[0-9]+-service\.clearkey u:object_r:vendor_hal_drm_clearkey_exec:s0
 /vendor/bin/hw/android\.hardware\.gatekeeper@1\.0-service-qti u:object_r:vendor_hal_gatekeeper_qti_exec:s0
 /vendor/bin/hw/android\.hardware\.health-service\.qti u:object_r:hal_health_default_exec:s0
@@ -974,10 +1013,6 @@
 /vendor/bin/hw/vendor\.display\.color@1\.0-service u:object_r:vendor_hal_display_color_default_exec:s0
 /vendor/bin/hw/vendor\.dolby\.media\.c2@1\.0-service u:object_r:mediacodec_exec:s0
 /vendor/bin/hw/vendor\.nxp\.hardware\.nfc@1\.2-service u:object_r:hal_nfc_default_exec:s0
-/vendor/bin/hw/vendor\.qti\.camera\.provider-service u:object_r:hal_camera_default_exec:s0
-/vendor/bin/hw/vendor\.qti\.camera\.provider-service_64 u:object_r:hal_camera_default_exec:s0
-/vendor/bin/hw/vendor\.qti\.camera\.provider@2\.[0-9]+-service u:object_r:hal_camera_default_exec:s0
-/vendor/bin/hw/vendor\.qti\.camera\.provider@2\.[0-9]+-service_64 u:object_r:hal_camera_default_exec:s0
 /vendor/bin/hw/vendor\.qti\.hardware\.alarm@1\.0-service u:object_r:vendor_hal_alarm_qti_default_exec:s0
 /vendor/bin/hw/vendor\.qti\.hardware\.bluetooth_dun@1\.0-service u:object_r:vendor_hal_bluetooth_dun_qti_exec:s0
 /vendor/bin/hw/vendor\.qti\.hardware\.cryptfshw@1\.0-service-qti u:object_r:vendor_hal_keymaster_qti_exec:s0
@@ -993,6 +1028,7 @@
 /vendor/bin/hw/vendor\.qti\.hardware\.vibrator\.service u:object_r:hal_vibrator_default_exec:s0
 /vendor/bin/hw/vendor\.qti\.media\.c2@1\.0-service u:object_r:mediacodec_exec:s0
 /vendor/bin/hw/vendor\.qti\.media\.c2audio@1\.0-service u:object_r:mediacodec_exec:s0
+/vendor/bin/ims-dataservice-daemon u:object_r:vendor_ims_dcservice_exec:s0
 /vendor/bin/ims_rtp_daemon u:object_r:vendor_hal_imsrtp_exec:s0
 /vendor/bin/imsdaemon u:object_r:vendor_ims_service_exec:s0
 /vendor/bin/init.qti.chg_policy.sh u:object_r:vendor_qti_init_shell_exec:s0
@@ -1035,6 +1071,7 @@
 /vendor/bin/thermal-engine-v2 u:object_r:vendor_thermal-engine_exec:s0
 /vendor/bin/time_daemon u:object_r:vendor_time_daemon_exec:s0
 /vendor/bin/tloc_daemon u:object_r:vendor_tlocd_exec:s0
+/vendor/bin/tlpd u:object_r:vendor_tlpd_exec:s0
 /vendor/bin/trusteduilistener u:object_r:vendor_trusteduilistener_exec:s0
 /vendor/bin/usbsecure u:object_r:vendor_usb_qti_exec:s0
 /vendor/bin/vendor.dpmd u:object_r:vendor_dpmd_vndr_exec:s0
@@ -1101,7 +1138,6 @@
 /vendor/lib(64)?/libllvm-qcom\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libllvm-qgl\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libmdsprpc\.so u:object_r:same_process_hal_file:s0
-/vendor/lib(64)?/libmialgo_ai_vision\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libmmi_jni\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libnpu\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libq3dtools_adreno\.so u:object_r:same_process_hal_file:s0
@@ -1114,6 +1150,7 @@
 /vendor/lib(64)?/librs_adreno\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/librs_adreno_sha1\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libsdsprpc\.so u:object_r:same_process_hal_file:s0
+/vendor/lib(64)?/libsnpe_config\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libtime_genoff\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libvmmem\.so u:object_r:same_process_hal_file:s0
 /vendor/lib(64)?/libvndfwk_detect_jni\.qti\.so u:object_r:same_process_hal_file:s0
@@ -1138,3 +1175,4 @@
 /vendor/lib(64)?/vendor\.qti\.hardware\.perf@2\.3\.so u:object_r:same_process_hal_file:s0
 /vendor/lib/dsp/fastrpc_shell_0 u:object_r:same_process_hal_file:s0
 /vendor/vm-system(/.*)? u:object_r:same_process_hal_file:s0
+sys/kernel/hardware_info_to_dump/hardw_info u:object_r:vendor_sysfs_hardwareinfo:s0

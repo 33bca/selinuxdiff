@@ -54,9 +54,6 @@ allow system_server vendor_location_slim_daemon:fd *;
 allow system_server vendor_location_xtwifi_client:binder transfer;
 allow system_server vendor_location_xtwifi_client:binder { call transfer };
 allow system_server vendor_location_xtwifi_client:fd *;
-allow system_server vendor_location_xtwifi_inetagent:binder transfer;
-allow system_server vendor_location_xtwifi_inetagent:binder { call transfer };
-allow system_server vendor_location_xtwifi_inetagent:fd *;
 allow system_server vendor_perfdump_app:binder transfer;
 allow system_server vendor_qvrd_vndr:binder transfer;
 allow system_server vendor_hal_srvctracker_default:binder { call transfer };
@@ -65,24 +62,22 @@ allow system_server vendor_location_engine_service:binder { call transfer };
 allow system_server vendor_location_engine_service:fd *;
 allow system_server vendor_proc_audiod:file r_file_perms;
 allow system_server vendor_sysfs_wigig:file rw_file_perms;
+allow system_server vendor_audio_prop:file { getattr open read };
+allow system_server vendor_audio_prop:file map;
 allow system_server hal_camera:binder transfer;
 allow system_server hal_camera:binder { call transfer };
 allow system_server hal_camera:fd *;
-allow system_server vendor_audio_prop:file { getattr open read };
-allow system_server vendor_audio_prop:file map;
 allow system_server audioserver:file write;
 allow system_server sound_device:chr_file rw_file_perms;
 allow system_server hal_cit_bluetooth_default:process signal;
 allow system_server vendor_diag-router:process { getsched setsched };
 allow system_server logd:process { getsched setsched };
+allow system_server vendor_wcnss_service:process { getsched setsched };
+allow system_server hal_quickcamera_hwservice:hwservice_manager find;
 allow system_server hal_miface_hwservice:hwservice_manager find;
 allow system_server hal_miface_default:binder { call transfer };
 allow system_server hal_miface_default:binder transfer;
 allow system_server hal_miface_default:fd *;
-allow system_server hal_miriskmanager_hwservice:hwservice_manager find;
-allow system_server hal_miriskmanager_default:binder { call transfer };
-allow system_server hal_miriskmanager_default:binder transfer;
-allow system_server hal_miriskmanager_default:fd *;
 allow system_server hal_mtdservice_hwservice:hwservice_manager find;
 allow system_server hal_mtdservice_default:binder { call transfer };
 allow system_server hal_mtdservice_default:fd *;
@@ -113,12 +108,15 @@ allow system_server hal_minet_default:binder transfer;
 allow system_server hal_micharge_hwservice:hwservice_manager find;
 allow system_server hal_micharge_default:binder { call transfer };
 allow system_server hal_misys_default:binder call;
+allow system_server hal_misys_default:binder { call transfer };
 allow system_server hal_misys_hwservice:hwservice_manager find;
 allow system_server hal_miperf_hwservice:hwservice_manager find;
 allow system_server hal_miperf_default:binder call;
 allow system_server hal_fbo_hwservice:hwservice_manager find;
+allow system_server hal_swap_hwservice:hwservice_manager find;
 allow system_server hal_cld_hwservice:hwservice_manager find;
 dontaudit system_server vendor_proc_shs:dir search;
+dontaudit system_server mpbe:process sigkill;
 allowxperm system_server self:ioctl socket { range 0xc300 0xc305 };
 r_dir_file(system_server, sysfs_memory)
 get_prop(system_server, graphics_config_prop)
@@ -136,11 +134,20 @@ get_prop(system_server, vendor_reschedule_service_prop)
 get_prop(system_server, vendor_cgroup_follow_prop)
 get_prop(system_server, vendor_scroll_prop)
 get_prop(system_server, vendor_qspm_prop)
+get_prop(system_server, vendor_audio_prop)
+get_prop(system_server, vendor_camera_prop)
+get_prop(system_server, vendor_camera_sensor_prop)
+get_prop(system_server, vendor_wlan_eht_prop)
 get_prop(system_server, vendor_onetrack_prop)
 get_prop(system_server, vendor_deviceorient_prop)
 get_prop(system_server, vendor_fp_prop)
 set_prop(system_server, power_debug_prop)
+set_prop(system_server, vendor_miui_vcamera_prop)
+set_prop(system_server, vendor_wlan_logs_prop)
 set_prop(system_server, vendor_wlan_china_sar_prop)
+set_prop(system_server, vendor_miui_wifi_p2p_enable160m_prop)
+set_prop(system_server, vendor_miui_wifi_hostapd_enable160m_prop)
+set_prop(system_server, vendor_miui_wifi_p2phc_prop)
 set_prop(system_server, log_tag_prop)
 binder_use(system_server)
 hal_client_domain(system_server, vendor_hal_capabilityconfigstore_qti)
@@ -153,10 +160,13 @@ hal_client_domain(system_server, vendor_hal_wigig_npt)
 hal_client_domain(system_server, vendor_hal_fstman)
 hal_client_domain(system_server, vendor_hal_wifilearner)
 hal_client_domain(system_server, vendor_hal_srvctracker)
+hal_client_domain(system_server, hal_misight)
 hal_client_domain(system_server, hal_dms)
 hal_client_domain(system_server, vendor_hal_displayfeature_xiaomi)
 hal_client_domain(system_server, hal_touchfeature_xiaomi)
+hal_client_domain(system_server, hal_mrm)
 hal_client_domain(system_server, hal_fbo)
+hal_client_domain(system_server, hal_swap)
 hal_client_domain(system_server, hal_cld)
-hal_client_domain(system_server, hal_misight)
+hal_client_domain(system_server, hal_blackboximpl)
 type system_server, domain;

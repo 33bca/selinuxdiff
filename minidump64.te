@@ -14,10 +14,13 @@ allow minidump64 storage_file:lnk_file read;
 allow minidump64 vendor_toolbox_exec:file { execute execute_no_trans getattr open read };
 allow minidump64 block_device:dir r_dir_perms;
 allow minidump64 minidump_partition:blk_file rw_file_perms;
+allow minidump64 blackbox_block_device:blk_file rw_file_perms;
+allow minidump64 kmsg_device:chr_file rw_file_perms;
+allow minidump64 kernel:system syslog_read;
 allow minidump64 sysfs_bootinfo:dir r_dir_perms;
 allow minidump64 sysfs_bootinfo:file rw_file_perms;
 allow minidump64 vfat:dir r_dir_perms;
-allow minidump64 vfat:file r_file_perms;
+allow minidump64 vfat:file rw_file_perms;
 init_daemon_domain(minidump64)
 set_prop(minidump64, vendor_minidump64_prop)
 type minidump64, domain;

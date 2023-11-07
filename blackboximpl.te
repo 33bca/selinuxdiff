@@ -1,0 +1,4 @@
+binder_use(blackboximpl)
+hal_attribute(blackboximpl)
+hal_client_domain(blackboximpl, hal_blackboximpl)
+type blackboximpl, coredomain, domain, mlstrustedsubject;

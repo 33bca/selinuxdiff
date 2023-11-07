@@ -12,7 +12,6 @@ allow vendor_location_slim_daemon system_server:binder transfer;
 allow vendor_location_slim_daemon system_server:fd *;
 allow vendor_location_slim_daemon self:qipcrtr_socket create_socket_perms_no_ioctl;
 allow vendor_location_slim_daemon fwk_sensor_hwservice:hwservice_manager find;
-allow vendor_location_slim_daemon vendor_location_xtwifi_inetagent:unix_dgram_socket sendto;
 allow vendor_location_slim_daemon vendor_location_xtwifi_client:unix_dgram_socket sendto;
 allow vendor_location_slim_daemon vendor_location_lowi_server:unix_dgram_socket sendto;
 get_prop(vendor_location_slim_daemon, hwservicemanager_prop)

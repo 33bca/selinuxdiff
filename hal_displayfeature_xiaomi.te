@@ -1,4 +1,5 @@
 allow vendor_hal_displayfeature_xiaomi vendor_sysfs_graphics:file rw_file_perms;
+allow vendor_hal_displayfeature_xiaomi vendor_displaylog_device:chr_file { ioctl open read write };
 allow vendor_hal_displayfeature_xiaomi vendor_qdisplay_service:service_manager find;
 allow vendor_hal_displayfeature_xiaomi hal_graphics_composer:binder { call transfer };
 allow vendor_hal_displayfeature_xiaomi hal_graphics_composer:fd *;
@@ -14,6 +15,7 @@ allow vendor_hal_displayfeature_xiaomi_default vendor_hal_display_config_hwservi
 allow vendor_hal_displayfeature_xiaomi_default vendor_display_vendor_data_file:dir create_dir_perms;
 allow vendor_hal_displayfeature_xiaomi_default vendor_display_vendor_data_file:file create_file_perms;
 allow vendor_hal_displayfeature_xiaomi_default vendor_displayfeature_device:chr_file { ioctl open read write };
+allow vendor_hal_displayfeature_xiaomi_default vendor_displaylog_device:chr_file { ioctl open read write };
 allow vendor_hal_displayfeature_xiaomi_default vendor_sysfs_displayfeature:dir r_dir_perms;
 allow vendor_hal_displayfeature_xiaomi_default vendor_sysfs_displayfeature:file rw_file_perms;
 allow vendor_hal_displayfeature_xiaomi_default vendor_mistcdisplay_service:service_manager find;

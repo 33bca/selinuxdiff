@@ -54,6 +54,13 @@ allow rild vendor_radio_smd_device:chr_file { open read write };
 allow rild vendor_modem_data_file:dir create_dir_perms;
 allow rild vendor_modem_data_file:file create_file_perms;
 allow rild vendor_sysfs_ssr_toggle:file rw_file_perms;
+allow rild vendor_ramdump_vendor_data_file:dir rw_dir_perms;
+allow rild vendor_ramdump_vendor_data_file:fifo_file { create getattr open read unlink write };
+allow rild vendor_ramdump_vendor_data_file:file { create getattr open read setattr unlink write };
+allow rild proc_ramdump:file r_file_perms;
+allow rild vendor_hal_display_config_hwservice:hwservice_manager find;
+allow rild vendor_hal_display_config_hwservice:binder { call transfer };
+allow rild vendor_hal_display_config_hwservice:fd *;
 allowxperm rild self:ioctl socket { range 0xc300 0xc305 };
 init_daemon_domain(rild)
 r_dir_file(rild, vendor_mbn_data_file)
@@ -81,6 +88,7 @@ get_prop(rild, vendor_dataqdp_prop)
 get_prop(rild, vendor_cpuid_prop)
 get_prop(rild, vendor_miui_region_prop)
 get_prop(rild, vendor_miui_singlesim_prop)
+get_prop(rild, audio_config_prop)
 set_prop(rild, vendor_xlat_prop)
 set_prop(rild, vendor_system_prop)
 set_prop(rild, vendor_radio_prop)

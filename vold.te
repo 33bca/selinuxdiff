@@ -134,6 +134,7 @@ allow vold mnt_vendor_file:dir { ioctl open read };
 allow vold gsi_metadata_file_type:dir search;
 allow vold gsi_public_metadata_file:file r_file_perms;
 allow vold vendor_apex_file:file r_file_perms;
+allow vold vendor_sysfs_mmc_host:file w_file_perms;
 dontaudit vold self:capability sys_resource;
 dontaudit vold self:cap_userns sys_resource;
 allowxperm vold fs_type:ioctl dir 0x5879;

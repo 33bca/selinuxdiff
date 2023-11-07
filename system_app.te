@@ -1,12 +1,16 @@
+allow system_app vendor_bsp_data_log_file:dir create_dir_perms;
+allow system_app vendor_bsp_data_log_file:file create_file_perms;
 allow system_app vendor_hal_displayfeature_xiaomi_default:binder transfer;
 allow system_app proc_tp_selftest:dir search;
 allow system_app proc_tp_selftest:file { getattr open read write };
+allow system_app proc_tp_file:file { getattr open read write };
 allow system_app sysfs_touch_hostprocess:file { getattr open read write };
 allow system_app vendor_data_touchreport_file:dir create_dir_perms;
 allow system_app vendor_data_touchreport_file:file create_file_perms;
 allow system_app touchfeature_device:chr_file rw_file_perms;
 allow system_app touchfeature_device:file { getattr map read };
 allow system_app vendor_atfwd:binder transfer;
+allow system_app wifi_prop:property_service set;
 allow system_app vendor_elabel_data_file:dir r_dir_perms;
 allow system_app vendor_elabel_data_file:file r_file_perms;
 allow system_app vendor_sysfs_qdss_dev:dir search;
@@ -16,6 +20,10 @@ allow system_app update_engine:binder transfer;
 allow system_app update_engine:binder { call transfer };
 allow system_app update_engine:fd *;
 allow system_app vendor_esepmdaemon:binder transfer;
+allow system_app bluetooth:binder transfer;
+allow system_app hal_bluetooth:binder { call transfer };
+allow system_app hal_bluetooth:binder transfer;
+allow system_app hal_bluetooth:fd *;
 allow system_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
 allow system_app vendor_hal_camerapostproc_xiaomi:binder { call transfer };
 allow system_app vendor_hal_camerapostproc_xiaomi:binder transfer;
@@ -32,10 +40,20 @@ allow system_app vendor_iop_prop:file read;
 allow system_app rootfs:dir { open read };
 allow system_app vendor_mac_vendor_data_file:file { getattr open read };
 allow system_app vendor_mac_vendor_data_file:dir search;
+allow system_app vendor_proc_kswapd_c:file rw_file_perms;
 allow system_app sysfs_leds:dir search;
+allow system_app vendor_fp_prop:file { map open read };
 allow system_app sysfs_led_torch:dir r_dir_perms;
 allow system_app sysfs_led_torch:file rw_file_perms;
 allow system_app sysfs_flashlight:file rw_file_perms;
+allow system_app vendor_ramdump_vendor_data_file:dir rw_dir_perms;
+allow system_app vendor_ramdump_vendor_data_file:fifo_file { create getattr open read unlink write };
+allow system_app vendor_ramdump_vendor_data_file:file { create getattr open read setattr unlink write };
+allow system_app proc_ramdump:file r_file_perms;
+allow system_app bluetooth_logs_data_file:dir { open read search };
+allow system_app bluetooth_logs_data_file:file { getattr open read };
+allow system_app bluetooth_data_file:dir { open read search };
+allow system_app camlog_device:chr_file { getattr ioctl open read watch watch_reads write };
 allow system_app vendor_sysfs_battery_supply:file r_file_perms;
 allow system_app vendor_sysfs_battery_supply:dir r_dir_perms;
 allow system_app vendor_sysfs_usb_supply:file r_file_perms;
@@ -51,27 +69,15 @@ allow system_app vendor_modem_data_file:dir create_dir_perms;
 allow system_app vendor_modem_data_file:file create_file_perms;
 allow system_app vendor_camera_data_file:dir { append map r_dir_perms write };
 allow system_app vendor_camera_data_file:file { getattr open read };
-allow system_app bluetooth:binder transfer;
-allow system_app hal_bluetooth:binder { call transfer };
-allow system_app hal_bluetooth:binder transfer;
-allow system_app hal_bluetooth:fd *;
-allow system_app vendor_proc_kswapd_c:file rw_file_perms;
-allow system_app vendor_fp_prop:file { map open read };
-allow system_app vendor_ramdump_vendor_data_file:dir rw_dir_perms;
-allow system_app vendor_ramdump_vendor_data_file:fifo_file { create getattr open read unlink write };
-allow system_app vendor_ramdump_vendor_data_file:file { create getattr open read setattr unlink write };
-allow system_app proc_ramdump:file r_file_perms;
-allow system_app bluetooth_logs_data_file:dir { open read search };
-allow system_app bluetooth_logs_data_file:file { getattr open read };
-allow system_app bluetooth_data_file:dir { open read search };
-allow system_app camlog_device:chr_file { getattr ioctl open read watch watch_reads write };
 allow system_app sound_device:chr_file { open read write };
+allow system_app hal_camera_aon_service:service_manager find;
+allow system_app hal_camera_aon:binder { call transfer };
+allow system_app hal_camera_aon:binder transfer;
+allow system_app hal_camera_aon:fd *;
+allow system_app vendor_sysfs_kgsl:file r_file_perms;
 allow system_app hal_miface_hwservice:hwservice_manager find;
 allow system_app hal_miface_default:binder call;
 allow system_app hal_miface_default:binder transfer;
-allow system_app hal_miriskmanager_hwservice:hwservice_manager find;
-allow system_app hal_miriskmanager_default:binder call;
-allow system_app hal_miriskmanager_default:binder transfer;
 allow system_app hal_mlipay_hwservice:hwservice_manager find;
 allow system_app hal_mlipay_default:binder call;
 allow system_app hal_mtdservice_hwservice:hwservice_manager find;
@@ -147,10 +153,12 @@ allow system_app ffu_data_file:dir create_dir_perms;
 allow system_app ffu_data_file:file create_file_perms;
 allow system_app hal_fbo_hwservice:hwservice_manager find;
 allow system_app hal_fbo_hwservice:binder call;
+allow system_app hal_swap_hwservice:hwservice_manager find;
+allow system_app hal_swap_hwservice:binder call;
 allow system_app hal_cld_hwservice:hwservice_manager find;
 allow system_app hal_cld_hwservice:binder call;
-allow system_app vendor_bsp_data_log_file:dir create_dir_perms;
-allow system_app vendor_bsp_data_log_file:file create_file_perms;
+allow system_app proc_kernel_debug:dir r_dir_perms;
+allow system_app proc_kernel_debug:file rw_file_perms;
 get_prop(system_app, vendor_displayfeature_prop)
 get_prop(system_app, vendor_display_prop)
 get_prop(system_app, vendor_promotion_prop)
@@ -158,13 +166,13 @@ get_prop(system_app, vendor_panel_info_prop)
 get_prop(system_app, vendor_touchfeature_prop)
 get_prop(system_app, vendor_touch_hostprocess_prop)
 get_prop(system_app, vendor_radio_prop)
+get_prop(system_app, vendor_audio_prop)
+get_prop(system_app, vendor_fp_prop)
+get_prop(system_app, audio_config_prop)
 get_prop(system_app, vendor_passpoint_prop)
 get_prop(system_app, vendor_camera_sensor_prop)
 get_prop(system_app, vendor_nfc_mi_prop)
 get_prop(system_app, vendor_wlan_logs_prop_ro)
-get_prop(system_app, vendor_audio_prop)
-get_prop(system_app, vendor_fp_prop)
-get_prop(system_app, audio_config_prop)
 get_prop(system_app, vendor_payment_security_prop)
 get_prop(system_app, vendor_cpuid_prop)
 get_prop(system_app, vendor_wlan_chip_prop)
@@ -179,6 +187,9 @@ set_prop(system_app, radio_control_prop)
 set_prop(system_app, vendor_wlan_logs_prop)
 set_prop(system_app, vendor_wlan_eht_prop)
 set_prop(system_app, vendor_wlan_china_sar_prop)
+set_prop(system_app, vendor_miui_wifi_p2p_enable160m_prop)
+set_prop(system_app, vendor_miui_wifi_hostapd_enable160m_prop)
+set_prop(system_app, vendor_miui_wifi_p2phc_prop)
 set_prop(system_app, system_prop)
 binder_use(system_app)
 hal_client_domain(system_app, hal_light)
@@ -192,13 +203,17 @@ hal_client_domain(system_app, vendor_hal_qspmhal)
 hal_client_domain(system_app, vendor_hal_soter)
 hal_client_domain(system_app, vendor_hal_sensorscalibrate_qti)
 hal_client_domain(system_app, vendor_hal_pasrmanager)
+hal_client_domain(system_app, vendor_hal_qconfig)
 hal_client_domain(system_app, vendor_hal_factory_qti)
+hal_client_domain(system_app, hal_misight)
 hal_client_domain(system_app, vendor_hal_displayfeature_xiaomi)
 hal_client_domain(system_app, hal_touchfeature_xiaomi)
 hal_client_domain(system_app, vendor_hal_camerapostproc_xiaomi)
+hal_client_domain(system_app, hal_camera_aon)
+hal_client_domain(system_app, hal_mrm)
 hal_client_domain(system_app, hal_cit_wifi)
 hal_client_domain(system_app, vendor_hal_citsensorservice_xiaomi)
 hal_client_domain(system_app, hal_quickcamera)
 hal_client_domain(system_app, hal_slaservice)
-hal_client_domain(system_app, hal_misight)
+hal_client_domain(system_app, hal_blackboximpl)
 type system_app, domain;

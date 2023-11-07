@@ -23,8 +23,6 @@ allow platform_app adsprpcd_file:dir { getattr search };
 allow platform_app vendor_xdsp_device:chr_file { ioctl open read };
 allow platform_app hal_miface_hwservice:hwservice_manager find;
 allow platform_app hal_miface_default:binder call;
-allow platform_app hal_miriskmanager_hwservice:hwservice_manager find;
-allow platform_app hal_miriskmanager_default:binder call;
 allow platform_app hal_mfidoca_hwservice:hwservice_manager find;
 allow platform_app hal_mfidoca_default:binder call;
 allow platform_app hal_mlipay_hwservice:hwservice_manager find;
@@ -62,21 +60,24 @@ allow platform_app hal_misys_hwservice:hwservice_manager find;
 allow platform_app hal_misys_default:binder call;
 allow platform_app hal_miperf_hwservice:hwservice_manager find;
 allow platform_app hal_miperf_default:binder call;
+get_prop(platform_app, vendor_panel_info_prop)
 get_prop(platform_app, vendor_promotion_prop)
 get_prop(platform_app, vendor_touchfeature_prop)
 get_prop(platform_app, vendor_display_notch_prop)
 get_prop(platform_app, vendor_mpctl_prop)
+get_prop(platform_app, vendor_audio_prop)
 get_prop(platform_app, vendor_camera_sensor_prop)
 get_prop(platform_app, vendor_camera_p3enable_prop)
-get_prop(platform_app, vendor_audio_prop)
 get_prop(platform_app, qemu_hw_prop)
+get_prop(platform_app, vendor_camera_prop)
 get_prop(platform_app, vendor_passpoint_prop)
 get_prop(platform_app, exported_system_prop)
-get_prop(platform_app, vendor_camera_prop)
 get_prop(platform_app, vendor_displayfeature_prop)
+get_prop(platform_app, vendor_miui_vcamera_prop)
 get_prop(platform_app, vendor_payment_security_prop)
 get_prop(platform_app, vendor_cpuid_prop)
 get_prop(platform_app, vendor_fp_prop)
+set_prop(platform_app, vendor_miui_wifi_p2p_enable160m_prop)
 set_prop(platform_app, system_prop)
 binder_use(platform_app)
 hal_client_domain(platform_app, hal_fingerprint)
@@ -85,11 +86,14 @@ hal_client_domain(platform_app, vendor_hal_qspmhal)
 hal_client_domain(platform_app, vendor_hal_soter)
 hal_client_domain(platform_app, vendor_hal_scve)
 hal_client_domain(platform_app, vendor_hal_pasrmanager)
+hal_client_domain(platform_app, vendor_hal_qconfig)
 hal_client_domain(platform_app, vendor_hal_cvp)
+hal_client_domain(platform_app, hal_misight)
 hal_client_domain(platform_app, hal_dms)
 hal_client_domain(platform_app, vendor_hal_displayfeature_xiaomi)
 hal_client_domain(platform_app, hal_touchfeature_xiaomi)
 hal_client_domain(platform_app, vendor_hal_camerapostproc_xiaomi)
+hal_client_domain(platform_app, hal_mrm)
 hal_client_domain(platform_app, hal_quickcamera)
-hal_client_domain(platform_app, hal_misight)
+hal_client_domain(platform_app, hal_blackboximpl)
 type platform_app, domain;

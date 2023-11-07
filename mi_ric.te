@@ -17,6 +17,8 @@ allow mi_ric block_device:dir search;
 allow mi_ric sysfs_devices_block:dir search;
 allow mi_ric gsort_block_device:lnk_file { open read write };
 allow mi_ric gsort_block_device:blk_file { open read write };
+allow mi_ric sysfs_bootinfo:dir r_dir_perms;
+allow mi_ric sysfs_bootinfo:file r_file_perms;
 init_daemon_domain(mi_ric)
 r_dir_file(mi_ric, sysfs)
 r_dir_file(mi_ric, sysfs_memory)

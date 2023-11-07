@@ -8,6 +8,10 @@ allow vendor_vui_dmgr incidentd:fifo_file { append write };
 allow vendor_vui_dmgr system_server:fifo_file { append write };
 allow vendor_vui_dmgr tombstoned:fd *;
 allow vendor_vui_dmgr tombstone_data_file:file append;
+allow vendor_vui_dmgr vendor_hal_qesdhal_default:file read;
+allow vendor_vui_dmgr vendor_hal_qesdhal_default:lnk_file read;
+allow vendor_vui_dmgr vendor_hal_qesdhal_default:dir search;
+allow vendor_vui_dmgr self:netlink_generic_socket create_socket_perms_no_ioctl;
 allow vendor_vui_dmgr vendor_vuidmgr_socket:sock_file rw_file_perms;
 init_daemon_domain(vendor_vui_dmgr)
 unix_socket_connect(vendor_vui_dmgr, tombstoned_crash, tombstoned)

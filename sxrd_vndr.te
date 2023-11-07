@@ -20,6 +20,7 @@ allow vendor_sxrd_vndr self:netlink_route_socket create_socket_perms_no_ioctl;
 init_daemon_domain(vendor_sxrd_vndr)
 r_dir_file(vendor_sxrd_vndr, firmware_file)
 get_prop(vendor_sxrd_vndr, hwservicemanager_prop)
+get_prop(vendor_sxrd_vndr, vendor_sxr_prop)
 binder_service(vendor_sxrd_vndr)
 binder_use(vendor_sxrd_vndr)
 hwbinder_use(vendor_sxrd_vndr)

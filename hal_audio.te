@@ -49,6 +49,7 @@ allow hal_audio_default self:capability sys_nice;
 allow hal_audio_default self:cap_userns sys_nice;
 allow hal_audio_default vendor_agm_device:chr_file rw_file_perms;
 allow hal_audio_default dmabuf_system_heap_device:chr_file r_file_perms;
+allow hal_audio_default vendor_dmabuf_system_uncached_heap_device:chr_file r_file_perms;
 allow hal_audio_default vendor_dmabuf_audio_ml_heap_device:chr_file r_file_perms;
 allow hal_audio_default vendor_sysfs_agm:file rw_file_perms;
 allow hal_audio_default vendor_sysfs_agm:dir r_dir_perms;

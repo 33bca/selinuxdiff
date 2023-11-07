@@ -1,3 +1,7 @@
+allow vendor_qconfigservice vendor_data_file:dir search;
+allow vendor_qconfigservice vendor_data_file:file read;
+allow vendor_qconfigservice vendor_data_file:file open;
+allow vendor_qconfigservice vendor_data_file:file getattr;
 init_daemon_domain(vendor_qconfigservice)
 hal_server_domain(vendor_qconfigservice, vendor_hal_qconfig)
 type vendor_qconfigservice, domain;

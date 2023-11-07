@@ -30,18 +30,20 @@ allow vendor_hal_gnss_qti vendor_location_lowi_server:unix_dgram_socket sendto;
 allow vendor_hal_gnss_qti vendor_qsap_location_socket:sock_file create_file_perms;
 allow vendor_hal_gnss_qti vendor_qsap_location_socket:dir rw_dir_perms;
 allow vendor_hal_gnss_qti vendor_sysfs_mhi:file r_file_perms;
+allow vendor_hal_gnss_qti vendor_rild_socket:dir search;
 allow vendor_hal_gnss_qti vendor_location_engine_service:unix_dgram_socket sendto;
 allow vendor_hal_gnss_qti vendor_location_edgnss_daemon:unix_dgram_socket sendto;
 allow vendor_hal_gnss_qti vendor_qsap_location:unix_dgram_socket sendto;
 allow vendor_hal_gnss_qti vendor_location_slim_daemon:unix_dgram_socket sendto;
 allow vendor_hal_gnss_qti vendor_location_xtwifi_client:unix_dgram_socket sendto;
-allow vendor_hal_gnss_qti vendor_location_xtwifi_inetagent:unix_dgram_socket sendto;
 allow vendor_hal_gnss_qti vendor_ins_vendor_data_file:dir rw_dir_perms;
 allow vendor_hal_gnss_qti vendor_ins_vendor_data_file:file create_file_perms;
 allow vendor_hal_gnss_qti vendor_persist_sensors_file:dir rw_dir_perms;
 allow vendor_hal_gnss_qti vendor_persist_sensors_file:file create_file_perms;
 allow vendor_hal_gnss_qti mnt_vendor_file:dir search;
 allow vendor_hal_gnss_qti mnt_vendor_file:dir rw_dir_perms;
+allow vendor_hal_gnss_qti fwk_sensor_hwservice:hwservice_manager find;
+allow vendor_hal_gnss_qti system_server:binder { call transfer };
 allow hal_gnss vendor_per_mgr:binder transfer;
 allow hal_gnss self:qipcrtr_socket create_socket_perms_no_ioctl;
 dontaudit vendor_hal_gnss_qti self:udp_socket create;
@@ -49,13 +51,17 @@ init_daemon_domain(hal_gnss_default)
 init_daemon_domain(vendor_hal_gnss_qti)
 unix_socket_connect(vendor_hal_gnss_qti, vendor_ssgtzd, vendor_location)
 unix_socket_connect(vendor_hal_gnss_qti, vendor_ssgtzd, vendor_ssgtzd)
+unix_socket_connect(vendor_hal_gnss_qti, vendor_ssgtzd, rild)
+unix_socket_connect(vendor_hal_gnss_qti, vendor_rild, vendor_location)
+unix_socket_connect(vendor_hal_gnss_qti, vendor_rild, vendor_ssgtzd)
+unix_socket_connect(vendor_hal_gnss_qti, vendor_rild, rild)
 get_prop(vendor_hal_gnss_qti, vendor_per_mgr_state_prop)
-get_prop(vendor_hal_gnss_qti, vendor_sensors_prop)
 get_prop(vendor_hal_gnss_qti, vendor_mi_ins_prop)
 vndbinder_use(vendor_hal_gnss_qti)
 hal_server_domain(hal_gnss_default, hal_gnss)
 hal_server_domain(vendor_hal_gnss_qti, hal_gnss)
 hal_client_domain(vendor_hal_gnss_qti, hal_health)
+hal_client_domain(vendor_hal_gnss_qti, vendor_hal_qms_qti)
 hal_attribute_service(hal_gnss, hal_gnss_service)
 hal_attribute_hwservice(hal_gnss, hal_gnss_hwservice)
 type hal_gnss_default, domain;

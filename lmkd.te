@@ -31,6 +31,7 @@ allow lmkd vendor_hal_perf_default:binder call;
 allow lmkd vendor_hal_iop_hwservice:hwservice_manager find;
 allow lmkd vendor_hal_iop_default:binder call;
 allow lmkd hwservicemanager:binder call;
+allow lmkd camlog_device:chr_file { ioctl open read write };
 r_dir_file(lmkd, domain)
 r_dir_file(lmkd, sysfs_lowmemorykiller)
 unix_socket_send(lmkd, lmkd, statsd)

@@ -29,6 +29,7 @@ allow hal_mimd_default sysfs_mimdtrigger:file rw_file_perms;
 allow hal_mimd_default sysfs_wake_lock:file rw_file_perms;
 allow hal_mimd_default sysfs:file rw_file_perms;
 allow hal_mimd_default hal_mimd_default:capability2 block_suspend;
+allow hal_mimd_default cgroup:file r_file_perms;
 allow hal_mimd_default system_app:binder call;
 init_daemon_domain(hal_mimd_default)
 hwbinder_use(hal_mimd_default)

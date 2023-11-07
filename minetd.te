@@ -3,7 +3,7 @@ allow minetd self:netlink_route_socket nlmsg_write;
 allow minetd self:capability net_admin;
 allow minetd socket_device:dir { remove_name write };
 allow minetd socket_device:dir add_name;
-allow minetd socket_device:sock_file { create setattr };
+allow minetd socket_device:sock_file { create setattr unlink };
 allow minetd minetd_socket:sock_file unlink;
 allow minetd vendor_shell_exec:file execute_no_trans;
 init_daemon_domain(minetd)

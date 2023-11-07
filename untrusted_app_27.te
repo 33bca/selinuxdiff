@@ -1,9 +1,6 @@
 allow untrusted_app_27 sound_device:chr_file rw_file_perms;
 get_prop(untrusted_app_27, vendor_audio_prop)
-get_prop(untrusted_app_27, vendor_fp_prop)
-get_prop(untrusted_app_27, vendor_payment_security_prop)
 hal_client_domain(untrusted_app_27, vendor_hal_qspmhal)
-hal_client_domain(untrusted_app_27, hal_mlipay)
-hal_client_domain(untrusted_app_27, hal_tidaservice)
+hal_client_domain(untrusted_app_27, vendor_hal_qconfig)
 hal_client_domain(untrusted_app_27, hal_otrpagent)
 type untrusted_app_27, domain;

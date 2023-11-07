@@ -1,8 +1,5 @@
 allow untrusted_app_25 vendor_sysfs_kgsl_gpuclk:file r_file_perms;
-get_prop(untrusted_app_25, vendor_fp_prop)
-get_prop(untrusted_app_25, vendor_payment_security_prop)
 hal_client_domain(untrusted_app_25, vendor_hal_qspmhal)
-hal_client_domain(untrusted_app_25, hal_mlipay)
-hal_client_domain(untrusted_app_25, hal_tidaservice)
+hal_client_domain(untrusted_app_25, vendor_hal_qconfig)
 hal_client_domain(untrusted_app_25, hal_otrpagent)
 type untrusted_app_25, domain;

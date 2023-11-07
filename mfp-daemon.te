@@ -1,5 +1,5 @@
-allow vendor_mfp-daemon fps_hal:binder transfer;
 allow vendor_mfp-daemon surfaceflinger:binder transfer;
+allow vendor_mfp-daemon fps_hal:binder transfer;
 allow vendor_mfp-daemon system_app:binder transfer;
 allow vendor_mfp-daemon system_app:binder { call transfer };
 allow vendor_mfp-daemon system_app:fd *;
@@ -21,6 +21,7 @@ allow vendor_mfp-daemon platform_app:binder { call transfer };
 allow vendor_mfp-daemon platform_app:binder transfer;
 allow vendor_mfp-daemon platform_app:fd *;
 allow vendor_mfp-daemon sysfs:file write;
+allow vendor_mfp-daemon sysfs_wakeup:file { open write };
 allow vendor_mfp-daemon vendor_sysfs_spss:dir search;
 allow vendor_mfp-daemon vendor_sysfs_spss:file { open read };
 allow vendor_mfp-daemon uhid_device:chr_file rw_file_perms;

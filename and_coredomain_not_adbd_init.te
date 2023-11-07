@@ -6,7 +6,6 @@ neverallow { coredomain -adbd -init } { domain -coredomain -socket_between_core_
 neverallow { coredomain -adbd -init } { domain -coredomain -socket_between_core_and_vendor_violators }:packet_socket { connect sendto };
 neverallow { coredomain -adbd -init } { domain -coredomain -socket_between_core_and_vendor_violators }:key_socket { connect sendto };
 neverallow { coredomain -adbd -init } { domain -coredomain -socket_between_core_and_vendor_violators }:unix_stream_socket { connect sendto };
-neverallow { coredomain -adbd -init } { domain -coredomain -socket_between_core_and_vendor_violators }:unix_stream_socket connectto;
 neverallow { coredomain -adbd -init } { domain -coredomain -socket_between_core_and_vendor_violators }:unix_dgram_socket { connect sendto };
 neverallow { coredomain -adbd -init } { domain -coredomain -socket_between_core_and_vendor_violators }:netlink_route_socket { connect sendto };
 neverallow { coredomain -adbd -init } { domain -coredomain -socket_between_core_and_vendor_violators }:netlink_tcpdiag_socket { connect sendto };

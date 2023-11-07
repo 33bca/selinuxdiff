@@ -29,7 +29,6 @@ unix_socket_send(vendor_location_lowi_server, vendor_wifihal, hal_wifi_supplican
 unix_socket_send(vendor_location_lowi_server, vendor_wifihal, hal_wifi_default)
 unix_socket_send(vendor_location_lowi_server, vendor_wifihal, vendor_location_xtwifi_client)
 unix_socket_send(vendor_location_lowi_server, vendor_wifihal, vendor_mlid)
-unix_socket_send(vendor_location_lowi_server, vendor_wifihal, vendor_location_xtwifi_inetagent)
 get_prop(vendor_location_lowi_server, hwservicemanager_prop)
 get_prop(vendor_location_lowi_server, vendor_cnd_prop)
 hwbinder_use(vendor_location_lowi_server)

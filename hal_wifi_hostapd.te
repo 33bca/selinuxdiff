@@ -39,6 +39,7 @@ allowxperm hal_wifi_hostapd_server self:ioctl udp_socket { range 0x890b 0x890d 0
 allowxperm hal_wifi_hostapd_server self:ioctl udp_socket { 0x8b00 0x8b02 0x8b04 0x8b06 0x8b08 0x8b0a 0x8b0c 0x8b0e 0x8b10 range 0x8b14 0x8b1d 0x8b20 0x8b22 0x8b24 0x8b26 0x8b28 range 0x8b2a 0x8b2c range 0x8b30 0x8b36 range 0x8be0 0x8bff };
 init_daemon_domain(hal_wifi_hostapd_default)
 r_dir_file(hal_wifi_hostapd_default, vendor_wifi_vendor_data_file)
+set_prop(hal_wifi_hostapd_default, vendor_miui_wifi_hostapd_enable160m_prop)
 binder_use(hal_wifi_hostapd_server)
 net_domain(hal_wifi_hostapd_default)
 hal_server_domain(hal_wifi_hostapd_default, hal_wifi_hostapd)

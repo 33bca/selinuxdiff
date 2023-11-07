@@ -1,0 +1,25 @@
+allow hal_swap_default system_server:binder call;
+allow hal_swap_default sysfs:dir { getattr open read search };
+allow hal_swap_default sysfs:file rw_file_perms;
+allow hal_swap_default self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+allow hal_swap_default block_device:dir search;
+allow hal_swap_default system_data_file:dir search;
+allow hal_swap_default sysfs_memory:dir search;
+allow hal_swap_default sysfs_memory:file { open read };
+allow hal_swap_default dm_device:blk_file getattr;
+allow hal_swap_default sysfs_fs_f2fs:dir { getattr open read search };
+allow hal_swap_default sysfs_fs_f2fs:file { getattr w_file_perms };
+allow hal_swap_client hal_swap_server:binder { call transfer };
+allow hal_swap_client hal_swap_server:binder transfer;
+allow hal_swap_client hal_swap_server:fd *;
+allow hal_swap_client hal_swap_hwservice:hwservice_manager find;
+allow hal_swap_server hal_swap_client:binder transfer;
+allow hal_swap_server hal_swap_client:binder { call transfer };
+allow hal_swap_server hal_swap_client:fd *;
+allow hal_swap_hwservice proc_drop_caches:file w_file_perms;
+init_daemon_domain(hal_swap_default)
+hal_server_domain(hal_swap_default, hal_swap)
+add_hwservice(hal_swap_server, hal_swap_hwservice)
+type hal_swap_default, domain;
+type hal_swap_default_exec, exec_type, file_type, vendor_file_type;
+type hal_swap_hwservice, hwservice_manager_type;

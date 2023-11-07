@@ -16,6 +16,7 @@ allow hal_fbo_default sysfs_memory:file { open read };
 allow hal_fbo_default dm_device:blk_file getattr;
 allow hal_fbo_default sysfs_fs_f2fs:dir { getattr open read search };
 allow hal_fbo_default sysfs_fs_f2fs:file { getattr w_file_perms };
+allow hal_fbo_default sysfs_devices_block:dir search;
 allow hal_fbo_hwservice proc_drop_caches:file w_file_perms;
 init_daemon_domain(hal_fbo_default)
 hal_server_domain(hal_fbo_default, hal_fbo)

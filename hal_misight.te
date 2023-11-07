@@ -14,7 +14,10 @@ allow hal_misight_default vendor_bsp_data_log_file:dir create_dir_perms;
 allow hal_misight_default vendor_bsp_data_log_file:file create_file_perms;
 allow hal_misight_default vendor_ramdump_vendor_data_file:dir create_dir_perms;
 allow hal_misight_default vendor_ramdump_vendor_data_file:file create_file_perms;
+allow hal_misight_default vfat:dir create_dir_perms;
+allow hal_misight_default vfat:file create_file_perms;
 init_daemon_domain(hal_misight_default)
+get_prop(hal_misight_default, abreuse_prop)
 binder_use(hal_misight_default)
 hal_server_domain(hal_misight_default, hal_misight)
 add_service(hal_misight_server, hal_misight_service)

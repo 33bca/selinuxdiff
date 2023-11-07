@@ -6,7 +6,6 @@ neverallow vendor_init { domain -init -logd -su -vendor_init }:netlink_socket { 
 neverallow vendor_init { domain -init -logd -su -vendor_init }:packet_socket { connect sendto };
 neverallow vendor_init { domain -init -logd -su -vendor_init }:key_socket { connect sendto };
 neverallow vendor_init { domain -init -logd -su -vendor_init }:unix_stream_socket { connect sendto };
-neverallow vendor_init { domain -init -logd -su -vendor_init }:unix_stream_socket connectto;
 neverallow vendor_init { domain -init -logd -su -vendor_init }:unix_dgram_socket { connect sendto };
 neverallow vendor_init { domain -init -logd -su -vendor_init }:netlink_route_socket { connect sendto };
 neverallow vendor_init { domain -init -logd -su -vendor_init }:netlink_tcpdiag_socket { connect sendto };

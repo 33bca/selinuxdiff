@@ -13,5 +13,6 @@ allow audioserver sound_device:chr_file rw_file_perms;
 get_prop(audioserver, vendor_audio_prop)
 get_prop(audioserver, bootanim_system_prop)
 set_prop(audioserver, audio_prop)
+set_prop(audioserver, vendor_minetd_low_budget_prop)
 hal_client_domain(audioserver, hal_dms)
 type audioserver, domain;

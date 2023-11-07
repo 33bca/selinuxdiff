@@ -25,6 +25,7 @@ allow hal_miface_default system_server:binder { call transfer };
 allow hal_miface_default system_server:fd *;
 allow hal_miface_default sysfs_tp_fodstatus:chr_file r_file_perms;
 allow hal_miface_default sysfs_tp_fodstatus:file r_file_perms;
+allow hal_miface_default vendor_sysfs_displayfeature:file r_file_perms;
 allow hal_miface_default system_app:binder call;
 allow hal_miface_default vendor_dmabuf_qseecom_heap_device:chr_file { ioctl open read };
 allow hal_miface_default vendor_dmabuf_qseecom_ta_heap_device:chr_file { ioctl open read };

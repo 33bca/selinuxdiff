@@ -1,8 +1,10 @@
+allow nfc system_app_service:service_manager find;
 allow nfc hal_micharge_hwservice:hwservice_manager find;
 allow nfc hal_micharge_default:binder call;
 get_prop(nfc, vendor_nfc_nq_prop)
 get_prop(nfc, vendor_nfc_mi_prop)
 get_prop(nfc, vendor_fp_prop)
+get_prop(nfc, vendor_audio_prop)
 hal_attribute(nfc)
 hal_client_domain(nfc, vendor_hal_perf)
 type nfc, domain;

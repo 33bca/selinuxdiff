@@ -42,7 +42,6 @@ neverallow domain contextmount_type:blk_file { unlink write };
 neverallow domain contextmount_type:sock_file { unlink write };
 neverallow domain contextmount_type:fifo_file { unlink write };
 neverallow domain tombstoned_crash_socket:unix_stream_socket connectto;
-neverallow domain su_exec:file no_x_file_perms;
 neverallow domain debugfs_type:file no_x_file_perms;
 neverallow domain crash_dump:process noatsecure;
 neverallow domain proc_type:dir { add_name create link remove_name rename reparent rmdir write };

@@ -17,6 +17,9 @@ allow vendor_qccvendor vendor_qcc_trd_data_file:dir create_dir_perms;
 allow vendor_qccvendor vendor_qms:binder transfer;
 allow vendor_qccvendor vendor_qms:binder { call transfer };
 allow vendor_qccvendor vendor_qms:fd *;
+allow vendor_qccvendor vendor_ssgtzd:binder transfer;
+allow vendor_qccvendor vendor_ssgtzd:binder { call transfer };
+allow vendor_qccvendor vendor_ssgtzd:fd *;
 init_daemon_domain(vendor_qccvendor)
 unix_socket_connect(vendor_qccvendor, property, logd)
 unix_socket_connect(vendor_qccvendor, logdr, init)

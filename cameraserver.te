@@ -42,6 +42,7 @@ allow cameraserver hal_miface_default:binder call;
 allow cameraserver hal_miface_default:binder transfer;
 get_prop(cameraserver, vendor_camera_prop)
 get_prop(cameraserver, vendor_adsprpc_prop)
+get_prop(cameraserver, vendor_sys_video_prop)
 binder_service(cameraserver)
 binder_use(cameraserver)
 hal_client_domain(cameraserver, hal_allocator)

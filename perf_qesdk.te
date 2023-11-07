@@ -1,3 +1,7 @@
+allow vendor_perf_qesdk vendor_hal_qesdhal_default:file read;
+allow vendor_perf_qesdk vendor_hal_qesdhal_default:lnk_file read;
+allow vendor_perf_qesdk vendor_hal_qesdhal_default:dir search;
+allow vendor_perf_qesdk self:netlink_generic_socket create_socket_perms_no_ioctl;
 init_daemon_domain(vendor_perf_qesdk)
 unix_socket_connect(vendor_perf_qesdk, vendor_qesd, vendor_hal_qesdhal)
 hal_client_domain(vendor_perf_qesdk, vendor_hal_perf)

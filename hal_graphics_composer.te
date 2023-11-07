@@ -67,6 +67,8 @@ allow hal_graphics_composer_default vendor_vm_hlos_device:chr_file r_file_perms;
 allow hal_graphics_composer_default vendor_display_vendor_data_file:dir create_dir_perms;
 allow hal_graphics_composer_default vendor_display_vendor_data_file:file create_file_perms;
 allow hal_graphics_composer_default vendor_sysfs_disp_boot_param:file r_file_perms;
+allow hal_graphics_composer_default vendor_persist_feature_enabler_file:dir search;
+allow hal_graphics_composer_default vendor_persist_feature_enabler_file:file r_file_perms;
 allow hal_graphics_composer_default hal_configstore_default:binder transfer;
 allow hal_graphics_composer_default mediacodec:binder transfer;
 allow hal_graphics_composer_default vendor_hal_citsensorservice_xiaomi_default:binder call;
@@ -80,13 +82,20 @@ init_daemon_domain(hal_graphics_composer_default)
 r_dir_file(hal_graphics_composer_default, sysfs_leds)
 r_dir_file(hal_graphics_composer_default, sysfs_type)
 unix_socket_connect(hal_graphics_composer_default, property, vendor_qdcm-ss)
+unix_socket_connect(hal_graphics_composer_default, property, vendor_ssgtzd)
 unix_socket_connect(hal_graphics_composer_default, vendor_pps, init)
 unix_socket_connect(hal_graphics_composer_default, vendor_pps, vendor_qdcm-ss)
+unix_socket_connect(hal_graphics_composer_default, vendor_pps, vendor_ssgtzd)
 unix_socket_connect(hal_graphics_composer_default, vendor_qdcmsocket, init)
 unix_socket_connect(hal_graphics_composer_default, vendor_qdcmsocket, vendor_qdcm-ss)
+unix_socket_connect(hal_graphics_composer_default, vendor_qdcmsocket, vendor_ssgtzd)
+unix_socket_connect(hal_graphics_composer_default, vendor_ssgtzd, init)
+unix_socket_connect(hal_graphics_composer_default, vendor_ssgtzd, vendor_qdcm-ss)
+unix_socket_connect(hal_graphics_composer_default, vendor_ssgtzd, vendor_ssgtzd)
 get_prop(hal_graphics_composer, vendor_display_prop)
 get_prop(hal_graphics_composer, vendor_displayfeature_prop)
 set_prop(hal_graphics_composer_default, vendor_display_prop)
+set_prop(hal_graphics_composer_default, vendor_displayfeature_prop)
 binder_service(hal_graphics_composer_default)
 vndbinder_use(hal_graphics_composer_default)
 hal_server_domain(hal_graphics_composer_default, hal_graphics_composer)
